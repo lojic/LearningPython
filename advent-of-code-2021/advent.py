@@ -7,6 +7,14 @@ def file_to_lines(fname):
 def bool_list_to_decimal(lst):
     return int("".join([ str(n) for n in lst ]), 2)
 
+def partition(seq, predicate):
+    yes, no = [], []
+
+    for item in seq:
+        (yes if predicate(item) else no).append(item)
+
+    return yes, no
+
 # Code from Peter Norvig's Advent of Code utilities
 
 def ints(text):
