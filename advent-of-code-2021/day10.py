@@ -42,7 +42,7 @@ def stack_value(stack):
 
 def part1(input):
     def value_of(c):
-        if c == ')': return 3
+        if   c == ')': return 3
         elif c == ']': return 57
         elif c == '}': return 1197
         elif c == '>': return 25137
