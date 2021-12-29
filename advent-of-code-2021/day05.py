@@ -17,7 +17,7 @@ def points(line):
     return [ p1 + i * step for i in range(n) ]
 
 def solve(lines):
-    d = collections.defaultdict(lambda: 0)
+    d = defaultdict(lambda: 0)
     for line in lines:
         for point in points(line):
             d[point] += 1

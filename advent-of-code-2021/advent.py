@@ -1,6 +1,11 @@
 import unittest
+from collections import Counter, defaultdict, namedtuple, deque
+from itertools   import permutations, combinations, chain, count as count_from, product as cross_product
+from statistics  import mean, median
+from math        import ceil, inf
+from functools   import lru_cache
+import matplotlib.pyplot as plt
 import re
-import collections
 
 def file_to_lines(fname):
     return open(fname).read().splitlines()
