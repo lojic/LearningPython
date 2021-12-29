@@ -80,3 +80,7 @@ def trunc(s: str, left=70, right=25, dots=' ... '):
 def mapt(fn, *args):
     """map(fn, *args) and return the result as a tuple."""
     return tuple(map(fn, *args))
+
+def quantify(iterable, pred=bool):
+    """Count the number of items in iterable for which pred is true."""
+    return sum(1 for item in iterable if pred(item))
