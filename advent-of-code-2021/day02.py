@@ -19,6 +19,8 @@ def part2(d, cmd, n):
     elif cmd == 'down':    d['aim'] += n
     elif cmd == 'up':      d['aim'] -= n
 
+# Tests ---------------------------------------------------------------------------------------
+
 class TestDay01(unittest.TestCase):
     def test_part1(self):
         self.assertEqual(solve(part1, input), 1936494)

@@ -62,6 +62,8 @@ def winning_numbers(numbers, boards):
 
     return result
 
+# Tests ---------------------------------------------------------------------------------------
+
 class TestDay04(unittest.TestCase):
     def test_is_winning(self):
         self.assertFalse(is_winning([1]*25))

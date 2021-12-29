@@ -61,6 +61,8 @@ def part2(input):
 
     return bool_list_to_decimal(life(input, True)) * bool_list_to_decimal(life(input, False))
 
+# Tests ---------------------------------------------------------------------------------------
+
 class TestDay03(unittest.TestCase):
     def test_compute_sums(self):
         self.assertEqual(compute_sums([[0,0,1],[1,0,1],[0,1,0]]), [1,1,2])

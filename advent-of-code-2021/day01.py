@@ -19,6 +19,8 @@ def part1():
 def part2():
     return count_increases(list(map(sum, windows(input))))
 
+# Tests ---------------------------------------------------------------------------------------
+
 class TestDay01(unittest.TestCase):
     def test_count_increase(self):
         self.assertEqual(count_increases([3,2,1]), 0)
