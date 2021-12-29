@@ -21,6 +21,9 @@ def partition(seq, predicate):
 
     return yes, no
 
+def findf(pred, seq):
+    return next((x for x in seq if pred(x)), None)
+
 # Code from Peter Norvig's Advent of Code utilities
 
 def ints(text):
@@ -74,6 +77,6 @@ def trunc(s: str, left=70, right=25, dots=' ... '):
     dots = ' ... '
     return s if len(s) <= left + right + len(dots) else s[:left] + dots + s[-right:]
 
-def mapt(fn, *args) -> tuple:
+def mapt(fn, *args):
     """map(fn, *args) and return the result as a tuple."""
     return tuple(map(fn, *args))
