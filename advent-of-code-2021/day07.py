@@ -14,9 +14,5 @@ part2_cost = lambda n: (n * (n + 1)) / 2
 
 # Tests ---------------------------------------------------------------------------------------
 
-class TestDay07(unittest.TestCase):
-    def test_solve(self):
-        self.assertEqual(solve(part1_cost, input), 351_901)
-        self.assertEqual(solve(part2_cost, input), 101_079_875)
-
-unittest.main()
+assert solve(part1_cost, input) == 351_901
+assert solve(part2_cost, input) == 101_079_875
