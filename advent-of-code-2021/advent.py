@@ -4,6 +4,9 @@ import re
 def file_to_lines(fname):
     return open(fname).read().splitlines()
 
+def bool_list_to_decimal(lst):
+    return int("".join([ str(n) for n in lst ]), 2)
+
 # Code from Peter Norvig's Advent of Code utilities
 
 def ints(text):

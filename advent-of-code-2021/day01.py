@@ -1,3 +1,5 @@
+# Port of my Racket solution:
+# https://github.com/lojic/LearningRacket/blob/master/advent-of-code-2021/solutions/day01/day01.rkt
 from advent import *
 
 input = [ int(x) for x in file_to_lines('day01.txt') ]

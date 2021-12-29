@@ -1,3 +1,5 @@
+# Port of my Racket solution:
+# https://github.com/lojic/LearningRacket/blob/master/advent-of-code-2021/solutions/day02/day02.rkt
 from advent import*
 
 input = parse(2, atoms)
