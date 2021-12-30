@@ -24,6 +24,11 @@ def partition(seq, predicate):
 def findf(pred, seq):
     return next((x for x in seq if pred(x)), None)
 
+def iterate(fun, arg, n):
+    for _ in range(n):
+        arg = fun(arg)
+    return arg
+
 # Code from Peter Norvig's Advent of Code utilities
 
 def ints(text):
