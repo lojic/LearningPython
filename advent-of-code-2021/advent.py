@@ -4,8 +4,10 @@ from itertools   import permutations, combinations, chain, count as count_from, 
 from statistics  import mean, median
 from math        import ceil, inf, prod
 from functools   import lru_cache
+from heapq       import heappop, heappush
 import matplotlib.pyplot as plt
 import re
+import timeit
 
 def file_to_lines(fname):
     return open(fname).read().splitlines()
