@@ -59,8 +59,10 @@ def atom(text):
     
 def parse(day, parser=str, sep='\n', print_lines=7):
     """Split the day's input file into entries separated by `sep`, and apply `parser` to each."""
-    fname   = f'day{day:02}.txt'
-    text    = open(fname).read()
+    fname    = f'day{day:02}.txt'
+    the_file = open(fname, "r")
+    text     = the_file.read()
+    the_file.close()
     entries = mapt(parser, text.rstrip().split(sep))
     
     if print_lines:
