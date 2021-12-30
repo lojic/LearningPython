@@ -1,5 +1,5 @@
 # Port of my Racket solution:
-#
+# https://github.com/lojic/LearningRacket/blob/master/advent-of-code-2021/solutions/day13/day13.rkt
 from advent import *
 
 input  = parse(13, atoms, sep='\n')
