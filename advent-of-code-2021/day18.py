@@ -76,8 +76,7 @@ def explode_pair(node):
     node.right = None
 
 def left_most(pred, node):
-    if not node:             return None
-    elif pred(node):         return node
+    if pred(node):           return node
     elif regular_node(node): return None
     else:
         return left_most(pred, node.left) or left_most(pred, node.right)
@@ -142,8 +141,7 @@ def regular_node(node):
     return node.value != None
 
 def right_most(pred, node):
-    if not node:             return None
-    elif pred(node):         return node
+    if pred(node):           return node
     elif regular_node(node): return None
     else:
         return right_most(pred, node.right) or right_most(pred, node.left)
@@ -170,21 +168,6 @@ def to_list(node):
         return f'[{to_list(node.left)},{to_list(node.right)}]'
     else:
         return f'{node.value}'
-
-def find_corrupt_link(node):
-    if node.left and node.left.parent != node:
-        return node.left
-    if node.right and node.right.parent != node:
-        return node.right
-    if node.left:
-        left = find_corrupt_link(node.left)
-        if left:
-            return left
-    if node.right:
-        right = find_corrupt_link(node.right)
-        if right:
-            return right
-    return None
 
 # Tests ---------------------------------------------------------------------------------------
 
