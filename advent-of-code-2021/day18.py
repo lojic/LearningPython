@@ -1,5 +1,5 @@
 # Port of my Racket solution:
-# https://github.com/lojic/LearningRacket/blob/master/advent-of-code-2021/solutions/day18/day18.rkt 
+# https://github.com/lojic/LearningRacket/blob/master/advent-of-code-2021/solutions/day18/day18.rkt
 from advent import *
 
 input = parse(18)
@@ -137,7 +137,7 @@ def reduce(node):
     if explode(node): return reduce(node)
     elif split(node): return reduce(node)
     else:             return node
-    
+
 def regular_node(node):
     return node.value != None
 
@@ -147,7 +147,7 @@ def right_most(pred, node):
     elif regular_node(node): return None
     else:
         return right_most(pred, node.right) or right_most(pred, node.left)
-    
+
 def split(node):
     def at_least_10(node):
         return regular_node(node) and node.value >= 10
@@ -185,7 +185,7 @@ def find_corrupt_link(node):
         if right:
             return right
     return None
-    
+
 # Tests ---------------------------------------------------------------------------------------
 
 class TestDay18(unittest.TestCase):
