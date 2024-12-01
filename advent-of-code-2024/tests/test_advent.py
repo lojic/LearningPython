@@ -22,7 +22,7 @@ class AdventTest(unittest.TestCase):
         self.assertEqual([1, 4, 5], pos)
         self.assertEqual([-7, -9, -1], neg)
 
-    # Peter Norvig's functions
+    # Peter Norvig's functions ----------------------------------------------------------------
 
     def testAtom(self):
         self.assertEqual(7, atom(" 7 "))
@@ -37,10 +37,19 @@ class AdventTest(unittest.TestCase):
     def testInts(self):
         self.assertEqual((3, 14, 2, 718), ints("3.14 is pi, 2.718 is e"))
         
-    # mapt is tested via other functions
+    def testMapt(self):
+        squares = mapt(lambda n : n * n, [ 1, 2, 3 ])
+        self.assertEqual((1, 4, 9), squares)
 
-#    def testParse(self):
+    def testQuantify(self):
+        self.assertEqual(3, quantify([1, 2, 3, 4, 5, 6, 8], lambda n : (n % 2) != 0))
         
+    def testTrunc(self):
+        self.assertEqual("beg ... end", trunc("beginning to the end", left=3, right=3))
+
+    def testWords(self):
+        self.assertEqual(["one", "two", "three", "MixedCase"],
+                         words("one, two...three MixedCase"))
 
 if __name__=='__main__':
     unittest.main()
