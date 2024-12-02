@@ -3,9 +3,7 @@ from advent import parse, ints, combinations
 input = parse(2, ints)
 
 def is_safe(t):
-    def helper(t):
-        return all(x < y <= (x + 3) for x, y in zip(t, t[1:]))
-
+    helper = lambda t: all(x < y <= (x + 3) for x, y in zip(t, t[1:]))
     return helper(t) or helper(list(reversed(t)))
 
 def is_dampened_safe(t):
