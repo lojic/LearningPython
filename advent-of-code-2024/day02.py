@@ -4,18 +4,12 @@ input = parse(2, ints)
 
 def is_safe(t):
     def helper(t):
-        for x, y in zip(t, t[1:]):
-            if not x < y <= (x + 3):
-                return False
-        return True
+        return all(x < y <= (x + 3) for x, y in zip(t, t[1:]))
 
     return helper(t) or helper(list(reversed(t)))
 
 def is_dampened_safe(t):
-    for t in combinations(t, len(t) - 1):
-        if is_safe(t):
-            return True
-    return False
+    return any(is_safe(t) for t in combinations(t, len(t) - 1))
 
 def part1():
     return sum([ 1 for t in input if is_safe(t) ])
