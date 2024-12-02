@@ -21,7 +21,7 @@ def part1():
     return sum([ 1 for t in input if is_safe(t) ])
 
 def part2():
-    return sum([ 1 for t in input if is_dampened_safe(t) ])
+    return sum([ 1 for t in input if is_safe(t) or is_dampened_safe(t) ])
 
 # ---------------------------------------------------------------------------------------------
 
