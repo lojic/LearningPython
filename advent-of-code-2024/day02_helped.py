@@ -1,3 +1,6 @@
+# This version used an idea from Triangle Devs discord to compute the
+# deltas instead of needing to reverse the list.
+
 from advent import parse, ints, combinations
 
 input = parse(2, ints)
