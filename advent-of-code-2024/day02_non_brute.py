@@ -1,5 +1,5 @@
 # The key idea is from reddit i.e. linear scan to invalid pair, then
-# try with either of the pair's elements removed.
+# try remainder with either of the pair's elements removed.
 from advent import parse, ints
 
 input = parse(2, ints)
