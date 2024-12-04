@@ -1,6 +1,6 @@
 from advent import parse
 
-input = parse(4, print_lines=None)
+input = parse(4)
 width, height = len(input[0]), len(input)
 dirs = (1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j)
 (e, se, s, sw, w, nw, n, ne) = dirs
