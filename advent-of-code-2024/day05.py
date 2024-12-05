@@ -4,9 +4,9 @@ rules, updates = parse(5, lambda s: mapt(ints, str.split(s)), sep='\n\n')
 order_dict     = defaultdict(set)
 for p1, p2 in rules: order_dict[p1].add(p2)
 
-is_ordered     = lambda t: list(t) == sort_pages(t)
-middle         = lambda t: t[len(t) // 2]
-sort_pages     = lambda t: sorted(t, key=cmp_to_key(lambda a, b: -1 if b in order_dict[a] else 1))
+is_ordered = lambda t: list(t) == sort_pages(t)
+middle     = lambda t: t[len(t) // 2]
+sort_pages = lambda t: sorted(t, key=cmp_to_key(lambda a, b: -1 if b in order_dict[a] else 1))
 
 assert sum(middle(t) for t in updates if is_ordered(t)) == 6949 # Part 1
 
