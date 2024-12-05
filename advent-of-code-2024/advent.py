@@ -23,6 +23,24 @@ def findf(pred, seq):
        or None, if none is found."""
     return next((x for x in seq if pred(x)), None)
 
+def grid_word_search(grid, word, indices=None, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j)):
+    width     = len(grid[0])
+    height    = len(grid)
+    word_list = list(word)
+
+    if indices is None:
+        indices = range(len(word))
+
+    def get(c):
+        x, y = int(c.real), int(c.imag)
+        return grid[y][x] if 0 <= x < width and 0 <= y < height else None
+
+    return [ (x, y, dir)
+             for dir in dirs
+             for x in range(width)
+             for y in range(height)
+             if word_list == [ get(complex(x,y) + n * dir) for n in indices] ]
+
 def iterate(fun, arg, n):
     """Return the result of repeatedly applying fun to arg n times."""
     for _ in range(n):

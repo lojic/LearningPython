@@ -13,6 +13,15 @@ class AdventTest(unittest.TestCase):
         first_pos = findf(lambda n :  n > 0, [ -3, -4, -7, 5, 4, 3 ])
         self.assertEqual(5, first_pos)
         
+    def testGridWordSearch(self):
+        grid = (" xmas ",
+                "smm sx",
+                " a am ",
+                " smas ",
+                " xsx   ")
+        self.assertEqual([(1, 0, 1), (1, 0, (1+1j)), (1, 0, 1j), (5, 1, (-1+1j)), (3, 4, (-1-1j)), (1, 4, (1-1j))],
+                         grid_word_search(grid, "xmas"))
+        
     def testIterate(self):
         thrice_squared = iterate(lambda n : n * n, 7, 3)
         self.assertEqual(5764801, thrice_squared)
