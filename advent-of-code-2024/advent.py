@@ -24,12 +24,12 @@ def findf(pred, seq):
     return next((x for x in seq if pred(x)), None)
 
 def grid_word_search(grid, word, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j), offset=0):
-    """Return a list of (x, y, direction) tuples for words in the
-       grid. The dirs parameter specifies the allowable orientations,
-       and the offset parameter allows shifting the word. Consider a
-       3-letter word. Using an offset of 0 would be typical and match
-       words starting at (x, y). Using an offset of -1 would match
-       words with the 2nd letter at (x, y). """
+    """Generate (x, y, direction) tuples for words in the grid. The
+       dirs parameter specifies the allowable orientations, and the
+       offset parameter allows shifting the word. Consider a 3-letter
+       word. Using an offset of 0 would be typical and match words
+       starting at (x, y). Using an offset of -1 would match words
+       with the 2nd letter at (x, y)."""
     width     = len(grid[0])
     height    = len(grid)
     word_list = list(word)
