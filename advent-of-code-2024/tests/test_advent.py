@@ -20,7 +20,7 @@ class AdventTest(unittest.TestCase):
                 " smas ",
                 " xsx   ")
         self.assertEqual([(1, 0, 1), (1, 0, (1+1j)), (1, 0, 1j), (5, 1, (-1+1j)), (3, 4, (-1-1j)), (1, 4, (1-1j))],
-                         grid_word_search(grid, "xmas"))
+                         list(grid_word_search(grid, "xmas")))
         
     def testIterate(self):
         thrice_squared = iterate(lambda n : n * n, 7, 3)

@@ -4,7 +4,7 @@ input = parse(4)
 (se, sw, nw, ne) = (1+1j, -1+1j, -1-1j, 1-1j)
 
 def part1():
-    return len(grid_word_search(input, "XMAS"))
+    return len(list(grid_word_search(input, "XMAS")))
 
 def part2():
     diag1 = { (x, y) for (x, y, d) in grid_word_search(input, "MAS", (ne, sw), -1) }
