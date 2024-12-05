@@ -7,8 +7,8 @@ def part1():
     return len(grid_word_search(input, "XMAS"))
 
 def part2():
-    diag1 = { (x, y) for (x, y, d) in grid_word_search(input, "MAS", (-1, 0, 1), (ne, sw)) }
-    diag2 = { (x, y) for (x, y, d) in grid_word_search(input, "MAS", (-1, 0, 1), (se, nw)) }
+    diag1 = { (x, y) for (x, y, d) in grid_word_search(input, "MAS", (ne, sw), -1) }
+    diag2 = { (x, y) for (x, y, d) in grid_word_search(input, "MAS", (se, nw), -1) }
     return len(diag1 & diag2)
 
 # ---------------------------------------------------------------------------------------------

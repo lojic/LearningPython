@@ -23,19 +23,18 @@ def findf(pred, seq):
        or None, if none is found."""
     return next((x for x in seq if pred(x)), None)
 
-def grid_word_search(grid, word, indices=None, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j)):
+def grid_word_search(grid, word, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j), offset=0):
+
     """Return a list of (x, y, direction) tuples for words in the
        grid. The dirs parameter specifies the allowable orientations,
-       and the indices parameter allows shifting the word. Consider a
-       3-letter word. Using indices of (0, 1, 2) would be typical and
-       match words starting at (x, y). Using indices of (-1, 0, 1)
-       would match words with the 2nd letter at (x, y). """
+       and the offset parameter allows shifting the word. Consider a
+       3-letter word. Using an offset of 0 would be typical and match
+       words starting at (x, y). Using an offset of -1 would match
+       words with the 2nd letter at (x, y). """
+       
     width     = len(grid[0])
     height    = len(grid)
     word_list = list(word)
-
-    if indices is None:
-        indices = range(len(word))
 
     def get(c):
         x, y = int(c.real), int(c.imag)
@@ -45,7 +44,7 @@ def grid_word_search(grid, word, indices=None, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-
              for dir in dirs
              for x in range(width)
              for y in range(height)
-             if word_list == [ get(complex(x,y) + n * dir) for n in indices] ]
+             if word_list == [ get(complex(x,y) + (n + offset) * dir) for n in range(len(word)) ] ]
 
 def iterate(fun, arg, n):
 
