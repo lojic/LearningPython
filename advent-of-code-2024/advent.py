@@ -23,6 +23,15 @@ def findf(pred, seq):
        or None, if none is found."""
     return next((x for x in seq if pred(x)), None)
 
+def grid_to_hash(lines,
+                 elem_filter    = lambda x: True,
+                 elem_transform = lambda x: x,
+                 row_filter     = lambda x: True,
+                 row_transform  = lambda x: x):
+    return { complex(col, row) : elem_transform(elem)
+             for row, line in enumerate(lines) if row_filter(line)
+             for col, elem in enumerate(row_transform(line)) if elem_filter(elem) }
+
 def grid_word_search(grid, word, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j), offset=0):
     """Generate (x, y, direction) tuples for words in the grid. The
        dirs parameter specifies the allowable orientations, and the

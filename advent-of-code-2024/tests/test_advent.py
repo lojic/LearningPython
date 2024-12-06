@@ -13,6 +13,35 @@ class AdventTest(unittest.TestCase):
         first_pos = findf(lambda n :  n > 0, [ -3, -4, -7, 5, 4, 3 ])
         self.assertEqual(5, first_pos)
         
+    def testGridToHash(self):
+        lines = [ "..#...#.",
+                  "...#....",
+                  ".#.....#",
+                  "##...#.." ]
+        hsh = grid_to_hash(lines)
+        st = set(hsh.keys())
+
+        self.assertEqual(len(st), 32) # entire 8 x 4 grid
+        assert 2+2j in st
+        self.assertEqual('#', hsh[3+1j])
+
+        hsh = grid_to_hash(lines, elem_filter=lambda col: col == '#')
+        keys = hsh.keys()
+
+        self.assertEqual(8, len(keys))
+        assert 1+2j in hsh
+        self.assertFalse(2+1j in hsh)
+        
+        hsh = grid_to_hash(lines, elem_transform=lambda c: "land" if c == '#' else "water")
+
+        self.assertEqual("land", hsh[7+2j])
+        self.assertEqual("water", hsh[7+3j])
+
+        hsh = grid_to_hash(lines, row_transform=reversed, elem_transform=lambda c: "land" if c == '#' else "water")
+
+        self.assertEqual("land", hsh[+2j])
+        self.assertEqual("water", hsh[1+2j])
+
     def testGridWordSearch(self):
         grid = (" xmas ",
                 "smm sx",
