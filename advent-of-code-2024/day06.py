@@ -24,36 +24,34 @@ def move(guard):
         case _    : return (g, pos2)
 
 def path_positions(guard=get_guard()):
-    positions = set()
+    history = set()
 
-    while guard is not None:
+    while guard is not None and guard not in history:
         _, pos = guard
-        positions.add(pos)
+        history.add(guard)
         guard = move(guard)
 
-    return positions
+    return (set(pos for g, pos in history), guard is not None)
+
+def part1():
+    return len(path_positions()[0])
 
 def part2():
-    def set_ch(x, y, ch):
+    def set_ch(pos, ch):
+        x, y = int(pos.real), int(pos.imag)
         grid[y][x] = ch
 
     def is_cycle_with_obstacle(guard, pos):
-        history = set()
-        x, y = int(pos.real), int(pos.imag)
-        set_ch(x, y, '#') # Place obstacle
-
-        while guard not in history and guard is not None:
-            history.add(guard)
-            guard = move(guard)
-
-        set_ch(x, y, '.') # Remove obstacle to restore grid
-        return guard is not None
+        set_ch(pos, '#')
+        _, cycle = path_positions(guard)
+        set_ch(pos, '.')
+        return cycle
 
     guard = get_guard()
 
-    return sum(is_cycle_with_obstacle(guard, pos) for pos in path_positions(guard))
+    return sum(is_cycle_with_obstacle(guard, pos) for pos in path_positions(guard)[0])
 
 # ---------------------------------------------------------------------------------------------
 
-assert len(path_positions()) == 4696
+assert part1() == 4696
 assert part2() == 1443
