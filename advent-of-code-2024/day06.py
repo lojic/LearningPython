@@ -1,6 +1,6 @@
 from advent import parse, remainder
 
-grid          = list(parse(6, list, print_lines=None))
+grid          = (parse(6, list))
 width, height = len(grid[0]), len(grid)
 rotate        = { '^' : '>', '>' : 'v', 'v' : '<', '<' : '^' }
 delta         = { '^' : -1j, '>' : 1,   'v' : 1j,  '<' : -1  }
