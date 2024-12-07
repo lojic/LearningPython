@@ -16,10 +16,10 @@ def is_valid(ops, answer, result, operands):
     else:
         return any(is_valid(ops, answer, evaluate(result, op, operands[0]), operands[1:]) for op in ops)
 
-def solve(operators):
+def solve(*operators):
     return sum(lst[0] for lst in input if is_valid(operators, lst[0], lst[1], lst[2:]))
 
 # ---------------------------------------------------------------------------------------------
 
-assert solve(('*','+'))      == 2664460013123   # Part 1
-assert solve(('*','+','||')) == 426214131924213 # Part 2
+assert solve('*','+')      == 2664460013123   # Part 1
+assert solve('*','+','||') == 426214131924213 # Part 2
