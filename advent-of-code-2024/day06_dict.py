@@ -27,7 +27,6 @@ def path_positions(guard=get_guard()):
     history = set()
 
     while guard is not None and guard not in history:
-        _, pos = guard
         history.add(guard)
         guard = move(guard)
 
