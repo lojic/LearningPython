@@ -1,3 +1,4 @@
+# Coded this version after spotting higher order functions in another solution.
 from advent import parse, ints
 
 input = parse(7, ints)
