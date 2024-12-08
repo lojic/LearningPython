@@ -2,7 +2,7 @@ from collections import Counter, defaultdict, namedtuple, deque
 from functools   import lru_cache, cmp_to_key
 from heapq       import heappop, heappush
 from itertools   import permutations, combinations, chain, count as count_from, product as cross_product, groupby
-from math        import ceil, inf, prod, remainder
+from math        import ceil, inf, prod, remainder, gcd
 from statistics  import mean, median
 import matplotlib.pyplot as plt
 import re
