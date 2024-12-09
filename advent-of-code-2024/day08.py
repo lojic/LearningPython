@@ -13,7 +13,7 @@ for k, v in grid_to_hash(lines, elem_filter=lambda c: c != '.').items():
     antennas[v].add(k)
 
 def part1(i, j, diff):
-    return [ n for n in [ i + diff, j - diff ] if valid_index(n) ]
+    return filter(valid_index, [ i + diff, j - diff ])
 
 def part2(i, j, diff):
     step = diff / gcd(int(diff.real), int(diff.imag))
