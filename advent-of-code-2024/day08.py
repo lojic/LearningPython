@@ -1,6 +1,6 @@
 from advent import parse, grid_to_hash, defaultdict, combinations, gcd
 
-lines         = parse(8, print_lines=None)
+lines         = parse(8)
 width, height = len(lines[0]), len(lines)
 antennas      = defaultdict(set)
 valid_index   = lambda i: 0 <= i.real < width and 0 <= i.imag < height
