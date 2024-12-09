@@ -1,0 +1,45 @@
+# Comprehensive list of "new concepts" introduced in blog posts:
+
+* 'defaultdict`
+* `%` modulo operator
+* `//` divfloor operator
+* `abs()`
+* `all()`
+* `any()`
+* `assert`
+* `complex()`
+* `Counter`
+* `filter()`
+* `functools.cmp_to_key()`
+* `import`
+* `int()`
+* `is not` operator
+* `join()`
+* `lambda`
+* `list()`
+* `Match.group()`
+* `match` structural matching
+* `math.gcd()`
+* `not in` operator
+* `range()`
+* `re.finditer()`
+* `re`
+* `reversed()`
+* `set.intersection()`
+* `sorted()`
+* `str.find()`
+* `str.split()`
+* `sum()`
+* `zip()`
+* Chained boolean expressions `x < y < z`
+* Complex numbers
+* Conditional in list comprehension `[ ... if pred() ]`
+* Generator expressions `(pred(x) for x in ...)`
+* itertools.combinations
+* List comprehensions
+* Parallel assignment
+* Sequence slicing `[:]`
+* Set comprehensions
+* sets
+* Ternary operator `x if expr else y`
+* Unpacking with *
