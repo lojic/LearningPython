@@ -96,7 +96,7 @@ def mapt(fn, *args):
     """map(fn, *args) and return the result as a tuple."""
     return tuple(map(fn, *args))
 
-def parse(day, parser=str, sep='\n', print_lines=7):
+def parse(day, parser=str, sep='\n', print_lines=None):
     """Split the day's input file into entries separated by `sep`, and apply `parser` to each."""
     fname    = f'day{day:02}.txt'
     the_file = open(fname, "r")
