@@ -9,8 +9,8 @@ solve         = lambda get_nodes: len({ n
                                         for i, j in combinations(s, 2)
                                         for n in get_nodes(i, j, i - j) })
 
-for k, v in grid_to_hash(lines, elem_filter=lambda c: c != '.').items():
-    antennas[v].add(k)
+for pos, label in grid_to_hash(lines, elem_filter=lambda c: c != '.').items():
+    antennas[label].add(pos)
 
 def part1(i, j, diff):
     return filter(valid_index, [ i + diff, j - diff ])
