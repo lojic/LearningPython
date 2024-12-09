@@ -17,7 +17,7 @@ def part1(i, j, diff):
 
 def part2(i, j, diff):
     step = diff / gcd(int(diff.real), int(diff.imag))
-    return { n * step + i for n in range(-width, width) if valid_index(n * step + i) }
+    return filter(valid_index, { n * step + i for n in range(-width, width) })
 
 # ---------------------------------------------------------------------------------------------
 
