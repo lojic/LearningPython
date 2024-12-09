@@ -5,7 +5,7 @@ width, height = len(lines[0]), len(lines)
 antennas      = defaultdict(set)
 valid_index   = lambda i: 0 <= i.real < width and 0 <= i.imag < height
 solve         = lambda get_nodes: len({ n
-                                        for _, s in antennas.items()
+                                        for s in antennas.values()
                                         for i, j in combinations(s, 2)
                                         for n in get_nodes(i, j, i - j) })
 
