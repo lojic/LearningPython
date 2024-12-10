@@ -4,16 +4,16 @@ input = parse(10, digits)
 grid  = defaultdict(lambda: None, grid_to_hash(input))
 solve = lambda score: sum([ score(dfs(head, -1, [])) for head, level in grid.copy().items() ])
 
-def dfs(head, prev, result):
-    level = grid[head]
+def dfs(pos, prev, result):
+    level = grid[pos]
     if level != prev + 1:
         return result
     elif level == 9:
-        result.append(head)
+        result.append(pos)
         return result
     else:
         for dir in (1, 1j, -1, -1j):
-            dfs(head + dir, level, result)
+            dfs(pos + dir, level, result)
         return result
 
 # ---------------------------------------------------------------------------------------------
