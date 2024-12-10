@@ -5,6 +5,7 @@ from itertools   import permutations, combinations, chain, count as count_from, 
 from math        import ceil, inf, prod, remainder, gcd
 from statistics  import mean, median
 import matplotlib.pyplot as plt
+import networkx as nx
 import re
 import timeit
 import unittest
@@ -12,6 +13,9 @@ import unittest
 def bool_list_to_decimal(lst):
     """Convert a list of boolean integers to the decimal equivalent."""
     return int("".join([ str(n) for n in lst ]), 2)
+
+def compose(f, g):
+    return lambda x: f(g(x))
 
 def file_to_lines(fname):
     """Read a file and return a list of the lines in the file."""

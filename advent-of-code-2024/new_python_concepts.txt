@@ -6,6 +6,7 @@
 * `abs()`
 * `all()`
 * `any()`
+* `append()`
 * `assert`
 * `complex()`
 * `Counter`
@@ -21,6 +22,7 @@
 * `match` structural matching
 * `math.gcd()`
 * `not in` operator
+* `pop()`
 * `range()`
 * `re.finditer()`
 * `re`
@@ -31,9 +33,11 @@
 * `str.split()`
 * `sum()`
 * `zip()`
+* Assignment expressions e.g. `(x := int(c.real))`
 * Chained boolean expressions `x < y < z`
 * Complex numbers
 * Conditional in list comprehension `[ ... if pred() ]`
+* Extended unpacking with `*` e.g. `for s, *lsts in disk:`
 * Generator expressions `(pred(x) for x in ...)`
 * itertools.combinations
 * List comprehensions
@@ -41,5 +45,6 @@
 * Sequence slicing `[:]`
 * Set comprehensions
 * sets
+* Slicing with a step value e.g. `input[1::2]`
 * Ternary operator `x if expr else y`
 * Unpacking with *
