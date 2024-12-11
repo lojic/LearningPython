@@ -3,6 +3,7 @@
 * 'defaultdict`
 * `%` modulo operator
 * `//` divfloor operator
+* `@cache` decorator
 * `abs()`
 * `all()`
 * `any()`
@@ -10,6 +11,7 @@
 * `assert`
 * `complex()`
 * `Counter`
+* `divmod()`
 * `filter()`
 * `functools.cmp_to_key()`
 * `import`
