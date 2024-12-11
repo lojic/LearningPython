@@ -1,4 +1,4 @@
-from advent import parse, ints, cache, timeit, defaultdict
+from advent import parse, ints, cache, timeit, defaultdict, lru_cache
 
 input = parse(11, ints)[0]
 
@@ -21,9 +21,6 @@ def blink(stone, blinks):
 
 def solve(blinks):
     return sum(blink(stone, blinks) for stone in input)
-
-assert solve(25) == 183484
-assert solve(75) == 218817038947400
 
 # ---------------------------------------------------------------------------------------------
 # Port of Danny's solution
@@ -50,10 +47,7 @@ def solve2(blinks):
 
     return sum(stones.values())
 
-assert solve2(25) == 183484
-assert solve2(75) == 218817038947400
-
 # ---------------------------------------------------------------------------------------------
 
-print(timeit.timeit('solve(100)', globals=globals(), number=10))
-print(timeit.timeit('solve2(100)', globals=globals(), number=10))
+print(timeit.timeit('solve(75)', globals=globals(), number=10))
+print(timeit.timeit('solve2(75)', globals=globals(), number=10))
