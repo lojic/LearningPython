@@ -7,7 +7,7 @@ def part1():
 
 def part2():
     c = Counter(right)
-    return sum([ n * c[n] for n in left ])
+    return sum(n * c[n] for n in left)
 
 # ---------------------------------------------------------------------------------------------
 
