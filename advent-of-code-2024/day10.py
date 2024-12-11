@@ -8,11 +8,10 @@ def dfs(pos, prev, result):
     if level != prev + 1:
         return result
     elif level == 9:
-        result.append(pos)
-        return result
+        return result + [ pos ]
     else:
         for dir in (1, 1j, -1, -1j):
-            dfs(pos + dir, level, result)
+            result = dfs(pos + dir, level, result)
         return result
 
 # ---------------------------------------------------------------------------------------------
