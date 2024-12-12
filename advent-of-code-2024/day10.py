@@ -1,6 +1,6 @@
 from advent import parse, digits, compose, defaultdict, grid_to_hash
 
-grid  = grid_to_hash(parse(10, digits))
+grid  = defaultdict(lambda: None, grid_to_hash(parse(10, digits)))
 solve = lambda score: sum([ score(dfs(head, -1, [])) for head, level in grid.copy().items() if level == 0 ])
 
 def dfs(pos, prev, result):
