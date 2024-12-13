@@ -11,6 +11,7 @@
 * `assert`
 * `complex()`
 * `Counter`
+* `dict.get(key, default)`
 * `divmod()`
 * `filter()`
 * `functools.cmp_to_key()`
