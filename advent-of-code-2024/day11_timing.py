@@ -49,5 +49,5 @@ def solve2(blinks):
 
 # ---------------------------------------------------------------------------------------------
 
-print(timeit.timeit('solve(75)', globals=globals(), number=10))
-print(timeit.timeit('solve2(75)', globals=globals(), number=10))
+print(timeit.timeit('solve(75)', globals=globals(), number=1))
+print(timeit.timeit('solve2(75)', globals=globals(), number=1))
