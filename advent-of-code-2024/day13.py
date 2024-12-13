@@ -1,11 +1,11 @@
 from advent import parse, ints
 import numpy as np
 
-input   = parse(13, ints, sep='\n\n', print_lines=3)
+input   = parse(13, ints, sep='\n\n')
 epsilon = 0.0001
 err     = 10000000000000
 
-def cost(a00, a10, a01, a11, b0, b1, offset=0, limit=100):
+def cost(a00, a10, a01, a11, b0, b1, offset, limit):
     coefficients = np.array([[a00, a01],[a10, a11]])
     unknowns     = np.array([b0 + offset, b1 + offset])
     a, b         = np.linalg.solve(coefficients, unknowns)

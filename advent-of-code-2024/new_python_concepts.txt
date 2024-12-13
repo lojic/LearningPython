@@ -15,6 +15,7 @@
 * `divmod()`
 * `filter()`
 * `functools.cmp_to_key()`
+* `import <lib> as <label>`
 * `import`
 * `int()`
 * `is not` operator
@@ -25,11 +26,14 @@
 * `match` structural matching
 * `math.gcd()`
 * `not in` operator
+* `np.array()`
+* `np.linalg.solve()`
 * `pop()`
 * `range()`
 * `re.finditer()`
 * `re`
 * `reversed()`
+* `round()`
 * `set.intersection()`
 * `sorted()`
 * `str.find()`
@@ -44,6 +48,7 @@
 * Generator expressions `(pred(x) for x in ...)`
 * itertools.combinations
 * List comprehensions
+* Numpy
 * Parallel assignment
 * Sequence slicing `[:]`
 * Set comprehensions
