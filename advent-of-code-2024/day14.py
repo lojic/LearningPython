@@ -35,15 +35,6 @@ def mostly_symmetric(s, xmid):
 
     return good > bad
 
-def print_robots(s):
-    for row in range(height):
-        for col in range(width):
-            if (col, row) in s:
-                print('x', end='')
-            else:
-                print('.', end='')
-        print('')
-
 def part2():
     r = robots
 
@@ -53,9 +44,6 @@ def part2():
 
         for xmid in range(30, width-30):
             if mostly_symmetric(s, xmid):
-                print(f'xmid={xmid}')
-                print(f'{seconds} ------------------------------------------------------------------------------------------------')
-                print_robots(s)
                 return seconds
 
 # ---------------------------------------------------------------------------------------------
