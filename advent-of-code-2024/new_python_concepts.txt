@@ -1,5 +1,6 @@
 # Comprehensive list of "new concepts" introduced in blog posts:
 
+
 * 'defaultdict`
 * `%` modulo operator
 * `//` divfloor operator
@@ -19,6 +20,7 @@
 * `import`
 * `int()`
 * `is not` operator
+* `itertools.count`
 * `join()`
 * `lambda`
 * `list()`

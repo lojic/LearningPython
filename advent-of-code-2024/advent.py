@@ -58,7 +58,6 @@ def grid_word_search(grid, word, dirs=(1, 1+1j, 1j, -1+1j, -1, -1-1j, -1j, 1-1j)
                     yield (x, y, dir)
 
 def iterate(fun, arg, n):
-
     """Return the result of repeatedly applying fun to arg n times."""
     for _ in range(n):
         arg = fun(arg)

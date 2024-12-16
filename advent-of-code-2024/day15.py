@@ -24,8 +24,8 @@ def push_boxes(grid, pos, dir, skip_recur=False, quiet=False):
         other_box = '['
 
     if skip_recur or push_boxes(grid, other_pos, dir, True, quiet):
-        next_pos  = pos + dir
-        next_box  = grid.get(next_pos, None)
+        next_pos = pos + dir
+        next_box = grid.get(next_pos, None)
 
         if next_box is None or is_box(next_box) and push_boxes(grid, next_pos, dir, quiet=quiet):
             if not quiet:
