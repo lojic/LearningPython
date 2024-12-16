@@ -9,10 +9,10 @@ G         = nx.DiGraph()
 
 for pos, val in [ (pos, val) for pos, val in grid.items() if val != '#' ]:
     for dir in dirs:
-        G.add_edge((pos, dir), (pos, rotate[dir]), weight=1000)
-        G.add_edge((pos, dir), (pos, rotate[rotate[rotate[dir]]]), weight=1000)
+        G.add_edge((pos, dir), (pos, rotate[dir]), weight=1000)                 # rotate right
+        G.add_edge((pos, dir), (pos, rotate[rotate[rotate[dir]]]), weight=1000) # rotate left
 
-        match grid.get(pos + dir, None):
+        match grid.get(pos + dir, None):                                        # move forward
             case '.': G.add_edge((pos, dir), (pos+dir, dir), weight=1)
             case 'E': G.add_edge((pos, dir), (pos+dir, None), weight=1)
 
