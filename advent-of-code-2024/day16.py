@@ -1,4 +1,4 @@
-from advent import parse, grid_to_hash, nx, timeit
+from advent import parse, grid_to_hash, nx
 
 grid      = grid_to_hash(parse(16, list))
 (e,s,w,n) = dirs = (1, 1j, -1, -1j)
