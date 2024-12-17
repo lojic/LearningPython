@@ -16,6 +16,7 @@
 * `divmod()`
 * `filter()`
 * `functools.cmp_to_key()`
+* `Graph().add_edge()`
 * `import <lib> as <label>`
 * `import`
 * `int()`
@@ -27,9 +28,14 @@
 * `Match.group()`
 * `match` structural matching
 * `math.gcd()`
+* `networkx` library
 * `not in` operator
 * `np.array()`
 * `np.linalg.solve()`
+* `nx.all_shortest_paths()`
+* `nx.DiGraph()`
+* `nx.Graph()`
+* `nx.shortest_path_length()`
 * `pop()`
 * `range()`
 * `re.finditer()`
@@ -46,6 +52,7 @@
 * Chained boolean expressions `x < y < z`
 * Complex numbers
 * Conditional in list comprehension `[ ... if pred() ]`
+* Default parameters `def solve(ignore_commands=False)`
 * Extended unpacking with `*` e.g. `for s, *lsts in disk:`
 * Generator expressions `(pred(x) for x in ...)`
 * itertools.combinations
