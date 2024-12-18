@@ -1,17 +1,28 @@
-def run(a):
-    idx, pc, b, c = 0, 0, 0, 0
-    output = []
+val = lambda a: ((((a % 8) ^ 1) ^ 4) ^ int(a / 2 ** ((a % 8) ^ 1))) % 8
 
-    while a != 0:
-        b = a % 8
-        b ^= 1
-        c = int(a / 2 ** b)
-        b ^= 4
-        a = int(a / 8)
-        b ^= c
-        v = b % 8
-        output.append(v)
+def part1(a):
+    def gen_digits(a):
+        while a != 0:
+            b = val(a)
+            yield b
+            a = int(a / 8)
 
-    return output
+    return ",".join([ str(d) for d in gen_digits(a) ])
 
-assert run(65804993) == [5,1,4,0,5,1,0,2,6] # Part 1
+def part2():
+    expected = list(reversed([2,4,1,1,7,5,1,4,0,3,4,5,5,5,3,0]))
+
+    def check(m, n, idx):
+        for a in range(m, n):
+            if val(a) == expected[idx]:
+                if idx == 15:
+                    yield a
+                else:
+                    yield from check(a*8, (a+1)*8, idx+1)
+
+    return next(check(0,8,0))
+
+# ---------------------------------------------------------------------------------------------
+
+assert part1(65804993) == "5,1,4,0,5,1,0,2,6"
+assert part2()         == 202322936867370
