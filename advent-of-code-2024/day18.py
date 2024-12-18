@@ -1,8 +1,8 @@
 from advent import parse, ints, nx
 
-input = parse(18, ints)
-dim   = 71
-goal  = 70+70j
+blocks = [ complex(x,y) for x, y in parse(18, ints) ]
+dim    = 71
+goal   = 70+70j
 
 def create_graph(blocks):
     def gen_edges(blocks):
@@ -19,23 +19,23 @@ def create_graph(blocks):
     return G
 
 def part1():
-    return nx.shortest_path_length(create_graph({ complex(x,y) for x, y in input[:1024] }), 0, goal)
+    return nx.shortest_path_length(create_graph(set(blocks[:1024])), 0, goal)
 
 def part2():
-    left, right = 1024, len(input)
+    left, right = 1024, len(blocks)
 
     while left < right - 1:
         n = int((left + right) / 2)
-        G = create_graph({ complex(x,y) for x, y in input[:n] })
+        G = create_graph(set(blocks[:n]))
 
         if goal in G and nx.has_path(G, 0, goal):
             left = n
         else:
             right = n
 
-    return input[left]
+    return blocks[left]
 
 # ---------------------------------------------------------------------------------------------
 
 assert part1() == 344
-assert part2() == (46, 18)
+assert part2() == complex(46, 18)
