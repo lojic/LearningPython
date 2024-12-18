@@ -1,10 +1,10 @@
 # Comprehensive list of "new concepts" introduced in blog posts:
 
-
 * 'defaultdict`
 * `%` modulo operator
 * `//` divfloor operator
 * `@cache` decorator
+* `^` xor operator
 * `abs()`
 * `all()`
 * `any()`
@@ -29,6 +29,7 @@
 * `match` structural matching
 * `math.gcd()`
 * `networkx` library
+* `next()`
 * `not in` operator
 * `np.array()`
 * `np.linalg.solve()`
@@ -47,6 +48,8 @@
 * `str.find()`
 * `str.split()`
 * `sum()`
+* `yield from`
+* `yield`
 * `zip()`
 * Assignment expressions e.g. `(x := int(c.real))`
 * Chained boolean expressions `x < y < z`
