@@ -24,7 +24,7 @@ def part1():
 def part2():
     left, right = 1024, len(blocks)
 
-    while left < right - 1:
+    while right - left > 1:
         n = int((left + right) / 2)
         G = create_graph(set(blocks[:n]))
 
