@@ -34,4 +34,4 @@ class Computer:
             case 5: return self.breg
             case 6: return self.creg
 
-assert Computer(areg=65804993,prog=[2,4,1,1,7,5,1,4,0,3,4,5,5,5,3,0]).run() == "5,1,4,0,5,1,0,2,6"
+assert Computer(areg=65804993,prog=[2,4,1,1,7,5,1,4,0,3,4,5,5,5,3,0]).run() == "5,1,4,0,5,1,0,2,6" # Part 1
