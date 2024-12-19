@@ -21,20 +21,6 @@ def create_graph(blocks):
 def part1():
     return nx.shortest_path_length(create_graph(set(blocks[:1024])), 0, goal)
 
-def part2_orig():
-    left, right = 1024, len(blocks)
-
-    while right - left > 1:
-        n = int((left + right) / 2)
-        G = create_graph(set(blocks[:n]))
-
-        if goal in G and nx.has_path(G, 0, goal):
-            left = n
-        else:
-            right = n
-
-    return blocks[left]
-
 def part2():
     def predicate(n):
         G = create_graph(set(blocks[:n+1]))
