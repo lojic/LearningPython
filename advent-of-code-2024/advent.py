@@ -12,7 +12,7 @@ import timeit
 import unittest
 
 def binary_search(predicate, low, high):
-    """Return the minimum index, n,  for which predicate(n) is True"""
+    """Return the minimum index, n, for which predicate(n) is True"""
     while high - low > 1:
         n = int((low + high) / 2)
 
