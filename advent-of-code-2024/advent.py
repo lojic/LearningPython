@@ -11,6 +11,17 @@ import re
 import timeit
 import unittest
 
+def binary_search(predicate, low, high):
+    """Return the minimum index, n,  for which predicate(n) is True"""
+    while high - low > 1:
+        n = int((low + high) / 2)
+
+        if predicate(n):
+            high = n
+        else:
+            low = n
+
+    return high
 
 def bool_list_to_decimal(lst):
     """Convert a list of boolean integers to the decimal equivalent."""

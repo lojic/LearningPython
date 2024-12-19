@@ -1,4 +1,4 @@
-from advent import parse, ints, nx
+from advent import parse, ints, nx, binary_search
 
 blocks = [ complex(x,y) for x, y in parse(18, ints) ]
 dim    = 71
@@ -21,7 +21,7 @@ def create_graph(blocks):
 def part1():
     return nx.shortest_path_length(create_graph(set(blocks[:1024])), 0, goal)
 
-def part2():
+def part2_orig():
     left, right = 1024, len(blocks)
 
     while right - left > 1:
@@ -34,6 +34,13 @@ def part2():
             right = n
 
     return blocks[left]
+
+def part2():
+    def predicate(n):
+        G = create_graph(set(blocks[:n+1]))
+        return not(goal in G and nx.has_path(G, 0, goal))
+
+    return blocks[binary_search(predicate, 1024, len(blocks))]
 
 # ---------------------------------------------------------------------------------------------
 

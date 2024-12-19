@@ -2,9 +2,23 @@ from advent import *
 
 class AdventTest(unittest.TestCase):
 
+    def testBinarySearch(self):
+        lst = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+        result = binary_search(lambda n: lst[n] >= 3, 0, len(lst)-1)
+        self.assertEqual(3, result)
+
+        lst = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+        result = binary_search(lambda n: lst[n] > 6.5, 0, len(lst)-1)
+        self.assertEqual(7, result)
+
+        lst = [ 'apple', 'banana', 'cherry', 'date', 'kiwi', 'strawberry' ]
+        result = binary_search(lambda n: lst[n] >= 'cherry', 0, len(lst)-1)
+        self.assertEqual(2, result)
+
+
     def testBoolListToDecimal(self):
         self.assertEqual(11, bool_list_to_decimal([1, 0, 1, 1]))
-        
+
     def testFileToLines(self):
         lines = file_to_lines("tests/test_advent.py")
         self.assertEqual("from advent import *", lines[0])
@@ -12,7 +26,7 @@ class AdventTest(unittest.TestCase):
     def testFindF(self):
         first_pos = findf(lambda n :  n > 0, [ -3, -4, -7, 5, 4, 3 ])
         self.assertEqual(5, first_pos)
-        
+
     def testGridToHash(self):
         lines = [ "..#...#.",
                   "...#....",
@@ -31,7 +45,7 @@ class AdventTest(unittest.TestCase):
         self.assertEqual(8, len(keys))
         assert 1+2j in hsh
         self.assertFalse(2+1j in hsh)
-        
+
         hsh = grid_to_hash(lines, elem_transform=lambda c: "land" if c == '#' else "water")
 
         self.assertEqual("land", hsh[7+2j])
@@ -50,11 +64,11 @@ class AdventTest(unittest.TestCase):
                 " xsx   ")
         self.assertEqual([(1, 0, 1), (1, 0, (1+1j)), (1, 0, 1j), (5, 1, (-1+1j)), (3, 4, (-1-1j)), (1, 4, (1-1j))],
                          list(grid_word_search(grid, "xmas")))
-        
+
     def testIterate(self):
         thrice_squared = iterate(lambda n : n * n, 7, 3)
         self.assertEqual(5764801, thrice_squared)
-        
+
     def testPartition(self):
         pos, neg = partition([1, 4, -7, 5, -9, -1], lambda n : n >= 0)
         self.assertEqual([1, 4, 5], pos)
@@ -65,23 +79,23 @@ class AdventTest(unittest.TestCase):
     def testAtom(self):
         self.assertEqual(7, atom(" 7 "))
         self.assertEqual(" s ", atom(" s "))
-        
+
     def testAtoms(self):
         self.assertEqual((7, "foo", "bar", 9.8), atoms(" 7,foo   bar: 9.8 "))
-        
+
     def testDigits(self):
         self.assertEqual((3, 1, 4, 2, 7, 1, 8), digits("3.14 is pi, 2.718 is e"))
 
     def testInts(self):
         self.assertEqual((3, 14, 2, 718), ints("3.14 is pi, 2.718 is e"))
-        
+
     def testMapt(self):
         squares = mapt(lambda n : n * n, [ 1, 2, 3 ])
         self.assertEqual((1, 4, 9), squares)
 
     def testQuantify(self):
         self.assertEqual(3, quantify([1, 2, 3, 4, 5, 6, 8], lambda n : (n % 2) != 0))
-        
+
     def testTrunc(self):
         self.assertEqual("beg ... end", trunc("beginning to the end", left=3, right=3))
 
