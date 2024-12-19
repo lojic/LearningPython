@@ -3,18 +3,18 @@
 # this version takes about 35 ms!
 from advent import parse, words, cache, timeit
 
-pat_set, designs = parse(19, lambda s: set(words(s)), sep='\n\n')
-max_pat_len      = max([len(pat) for pat in pat_set])
+towels, designs = parse(19, lambda s: set(words(s)), sep='\n\n')
+max_len         = max(len(pat) for pat in towels)
 
 @cache
 def check_design(design):
-    total = 1 if design in pat_set else 0
+    arrangements = 1 if design in towels else 0
 
-    for y in range(1, min(max_pat_len, len(design)) + 1):
-        if design[0:y] in pat_set:
-            total += check_design(design[y:])
+    for prefix_len in range(1, min(max_len, len(design)) + 1):
+        if design[0:prefix_len] in towels:
+            arrangements += check_design(design[prefix_len:])
 
-    return total
+    return arrangements
 
 counts = [ cnt for design in designs if (cnt := check_design(design)) > 0 ]
 
