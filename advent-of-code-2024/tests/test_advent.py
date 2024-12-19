@@ -15,6 +15,10 @@ class AdventTest(unittest.TestCase):
         result = binary_search(lambda n: lst[n] >= 'cherry', 0, len(lst)-1)
         self.assertEqual(2, result)
 
+        lst = [ 'apple', 'banana', 'cherry', 'date', 'kiwi', 'strawberry' ]
+        result = binary_search(lambda n: lst[n] >= 'zebra', 0, len(lst)-1)
+        self.assertEqual(None, result)
+        
 
     def testBoolListToDecimal(self):
         self.assertEqual(11, bool_list_to_decimal([1, 0, 1, 1]))

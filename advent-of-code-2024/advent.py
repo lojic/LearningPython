@@ -12,16 +12,20 @@ import timeit
 import unittest
 
 def binary_search(predicate, low, high):
-    """Return the minimum index, n, for which predicate(n) is True"""
+    """Return the minimum index, n, for which predicate(n) is
+    True. Return None if not found"""
+    found = False
+    
     while high - low > 1:
         n = int((low + high) / 2)
 
         if predicate(n):
+            found = True
             high = n
         else:
             low = n
 
-    return high
+    return high if found else None
 
 def bool_list_to_decimal(lst):
     """Convert a list of boolean integers to the decimal equivalent."""
