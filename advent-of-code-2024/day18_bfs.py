@@ -12,8 +12,7 @@ def part1(goal):
 
         if pos == goal:
             return length
-
-        if pos in visited:
+        elif pos in visited:
             continue
 
         visited.add(pos)
