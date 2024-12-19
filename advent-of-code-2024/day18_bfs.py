@@ -16,10 +16,10 @@ def part1(goal):
             continue
 
         visited.add(pos)
+        x, y = pos
 
         for dx, dy in ((1,0), (0,1), (-1,0), (0,-1)):
-            x, y = pos
-            nxt  = (nx, ny) = x + dx, y + dy
+            nxt = (nx, ny) = x + dx, y + dy
 
             if 0 <= nx <= goal[0] and 0 <= ny <= goal[1] and nxt not in visited and nxt not in blocks:
                 heappush(pq, (length + 1, nxt))
