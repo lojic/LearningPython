@@ -25,10 +25,8 @@ def gen_edges():
                 if south_c == '.':
                     yield (pos, south)
             elif pos_c == '#':
-                west    = pos -1
-                west_c  = grid.get(west,  None)
-                north   = pos - 1j
-                north_c = grid.get(north, None)
+                west_c  = grid.get(pos - 1,  None)
+                north_c = grid.get(pos - 1j, None)
 
                 if (east_c == '.' and west_c == '.') or (north_c == '.' and south_c == '.'):
                     candidates.append(pos)
