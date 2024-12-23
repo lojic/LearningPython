@@ -5,6 +5,7 @@ from itertools   import permutations, combinations, chain, count as count_from, 
 from math        import ceil, inf, prod, remainder, gcd, floor
 from statistics  import mean, median
 from dataclasses import dataclass, field
+from sys         import setrecursionlimit
 import matplotlib.pyplot as plt
 import networkx as nx
 import re
