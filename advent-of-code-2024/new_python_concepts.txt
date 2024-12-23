@@ -33,6 +33,7 @@
 * `not in` operator
 * `np.array()`
 * `np.linalg.solve()`
+* `nx.all_pairs_all_shortest_paths()`
 * `nx.all_shortest_paths()`
 * `nx.DiGraph()`
 * `nx.Graph()`
@@ -41,10 +42,12 @@
 * `range()`
 * `re.finditer()`
 * `re`
+* `removeprefix()`
 * `reversed()`
 * `round()`
 * `set.intersection()`
 * `sorted()`
+* `startswith()`
 * `str.find()`
 * `str.split()`
 * `sum()`
@@ -60,6 +63,7 @@
 * Generator expressions `(pred(x) for x in ...)`
 * itertools.combinations
 * List comprehensions
+* Nested list comprehensions e.g. `[ [ x for xs in cp for x in xs ] for cp in cross_product(*buttons) ]`
 * Numpy
 * Parallel assignment
 * Sequence slicing `[:]`
