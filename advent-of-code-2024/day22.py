@@ -1,5 +1,4 @@
 from advent import parse, iterate, Counter
-from operator import add
 
 input = parse(22, int)
 
