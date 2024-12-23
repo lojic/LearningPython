@@ -1,5 +1,7 @@
 from advent import parse, ints, heappop, heappush
 
+# Day 18 Part 1 version using a manual breadth first search.
+
 blocks = { (x,y) for x, y in parse(18, ints)[:1024] }
 
 def part1(goal):
