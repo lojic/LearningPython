@@ -17,6 +17,7 @@
 * `filter()`
 * `functools.cmp_to_key()`
 * `Graph().add_edge()`
+* `Graph().has_edge()`
 * `import <lib> as <label>`
 * `import`
 * `int()`
@@ -37,7 +38,9 @@
 * `nx.all_shortest_paths()`
 * `nx.DiGraph()`
 * `nx.Graph()`
+* `nx.max_weight_clique()`
 * `nx.shortest_path_length()`
+* `nx.triangles()`
 * `pop()`
 * `range()`
 * `re.finditer()`
