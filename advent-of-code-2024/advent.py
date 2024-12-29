@@ -35,6 +35,9 @@ def bool_list_to_decimal(lst):
 def compose(f, g):
     return lambda x: f(g(x))
 
+def decimal_to_bool_list(n):
+    return [ int(digit) for digit in bin(n)[2:] ]
+
 def file_to_lines(fname):
     """Read a file and return a list of the lines in the file."""
     with open(fname) as myfile:
