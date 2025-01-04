@@ -10,5 +10,5 @@ def solve(fun):
 
 # ---------------------------------------------------------------------------------------------
 
-assert solve(sum)  == 654
-assert solve(next) == 57
+assert solve(sum)  == 654 # Part 1
+assert solve(next) == 57  # Part 2
