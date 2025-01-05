@@ -4,12 +4,7 @@ input = parse(12)[0]
 
 def evaluate(obj):
     if isinstance(obj, dict):
-        vals = obj.values()
-
-        if 'red' in vals:
-            return 0
-        else:
-            return sum(evaluate(x) for x in vals)
+        return 0 if 'red' in obj.values() else sum(evaluate(x) for x in obj.values())
     elif isinstance(obj, list):
         return sum(evaluate(x) for x in obj)
     elif isinstance(obj, int):
