@@ -9,10 +9,5 @@ def evaluate(obj):
         case dict(obj): return 0 if 'red' in obj.values() else sum(evaluate(x) for x in obj.values())
         case _:         return 0
 
-part1 = lambda: sum(ints(input))
-part2 = lambda: evaluate(json.loads(input))
-
-# ---------------------------------------------------------------------------------------------
-
-assert part1() == 111754
-assert part2() == 65402
+assert sum(ints(input))            == 111754 # Part 1
+assert evaluate(json.loads(input)) == 65402  # Part 2
