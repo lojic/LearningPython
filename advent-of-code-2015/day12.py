@@ -3,19 +3,14 @@ from advent import parse, ints, json
 input = parse(12)[0]
 
 def evaluate(obj):
-    if isinstance(obj, dict):
-        return 0 if 'red' in obj.values() else sum(evaluate(x) for x in obj.values())
-    elif isinstance(obj, list):
-        return sum(evaluate(x) for x in obj)
-    elif isinstance(obj, int):
-        return obj
-    else:
-        return 0
+    match obj:
+        case int(obj):  return obj
+        case list(obj): return sum(evaluate(x) for x in obj)
+        case dict(obj): return 0 if 'red' in obj.values() else sum(evaluate(x) for x in obj.values())
+        case _:         return 0
 
 part1 = lambda: sum(ints(input))
-
-def part2():
-    return evaluate(json.loads(input))
+part2 = lambda: evaluate(json.loads(input))
 
 # ---------------------------------------------------------------------------------------------
 
