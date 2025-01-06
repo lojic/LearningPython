@@ -21,9 +21,10 @@ def phone_matches_last_name(phone, name):
     return True
 
 def solve():
-    df = pd.read_csv('noahs-customers.csv')
+    df        = pd.read_csv('noahs-customers.csv')
+    predicate = lambda row: phone_matches_last_name(row['phone'], row['name'])
 
-    return df[df.apply(lambda row: phone_matches_last_name(row['phone'], row['name']), axis=1)].iloc[0]['phone']
+    return df[df.apply(predicate, axis=1)].iloc[0]['phone']
 
 # ---------------------------------------------------------------------------------------------
 
