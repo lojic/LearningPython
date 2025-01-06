@@ -9,19 +9,15 @@ rabbit_years = [ ('1903-01-29', '1904-02-15'), ('1915-02-14', '1916-02-03'),
                  ('2023-01-22', '2024-02-09') ]
 
 customers          = pd.read_csv('noahs-customers.csv')
-contractor_address = customers['citystatezip'][customers['phone'] == '332-274-4185'].iloc[0]
+contractor_address = customers[customers['phone'] == '332-274-4185'].iloc[0]['citystatezip']
 
-is_rabbit   = lambda birthdate: any(d1 <= birthdate <= d2 for d1, d2 in rabbit_years)
-is_cancer   = lambda birthdate: '06-21' <= birthdate[5:] <= '07-22'
-is_neighbor = lambda address:   contractor_address == address
+is_rabbit   = lambda row: any(d1 <= row['birthdate'] <= d2 for d1, d2 in rabbit_years)
+is_cancer   = lambda row: '06-21' <= row['birthdate'][5:] <= '07-22'
+is_neighbor = lambda row: contractor_address == row['citystatezip']
+predicate   = lambda row: is_rabbit(row) and is_cancer(row) and is_neighbor(row)
 
 def solve():
-    for index, row in customers[['phone','birthdate','citystatezip']].iterrows():
-        birthdate = row['birthdate']
-        address   = row['citystatezip']
-
-        if is_rabbit(birthdate) and is_cancer(birthdate) and is_neighbor(address):
-            return row['phone']
+    return customers[customers.apply(predicate, axis=1)].iloc[0]['phone']
 
 # -------------------------------------------------------------------------------------
 
