@@ -22,12 +22,8 @@ def phone_matches_last_name(phone, name):
 
 def solve():
     df = pd.read_csv('noahs-customers.csv')
-    
-    for name, phone in zip(df['name'], df['phone']):
-        if phone_matches_last_name(phone, name):
-            return phone
 
-    return None
+    return df[df.apply(lambda row: phone_matches_last_name(row['phone'], row['name']), axis=1)].iloc[0]['phone']
 
 # ---------------------------------------------------------------------------------------------
 
