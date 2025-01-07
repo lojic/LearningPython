@@ -9,12 +9,11 @@ def solve():
 
     # Get the Bargain Hunter information from the previous day
     bargain_hunter = customers[customers['phone'] == '585-838-9161']
-    bargain_hunter_id = bargain_hunter.iloc[0]['customerid']
 
     # Get products that have a color
     col_products = products[products['sku'].str.startswith('COL')]
 
-    # Get orders for the Bargain Hunter where:
+    # Get order items for the Bargain Hunter where:
     # 1. SKU indicates color
     # 2. ordered and shipped timestamps are equal i.e. in stock and in person
     bargain_orders = pd.merge(col_products, order_items). \
@@ -29,11 +28,11 @@ def solve():
         # Date plus hour of checkout e.g. "2024-04-01 12"
         ts = ordered[:13]
 
-        # Get order items for similar products e.g. "Noah's Poster"
+        # Restrict to order items for similar products e.g. "Noah's Poster"
         prods = products[products['desc'].str.startswith(desc_prefix)].merge(order_items).merge(orders)
 
-        # Get order items in the same hour as the Bargain Hunter's
-        # NOTE: this wouldn't work if the two times were very close to the hours!
+        # Restrict to order items in the same hour as the Bargain Hunter's
+        # NOTE: this wouldn't work if the two times were very close to "on the hour"!
         items = prods[prods['ordered'].str.startswith(ts)][['customerid','desc']].values.tolist()
 
         # Restrict to different colored products
