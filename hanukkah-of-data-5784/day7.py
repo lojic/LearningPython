@@ -21,30 +21,27 @@ def solve():
         merge(orders). \
         merge(bargain_hunter).query('ordered == shipped')[['desc','ordered']].values.tolist()
 
-    lunch_hour = lambda ts: '11' <= ts[11:13] <= '12'
-
     # Loop over the Bargain Hunter's orders
-    for desc, ordered in bargain_orders:
+    for orig_desc, ordered in bargain_orders:
         # Strip off the color portion of the product descriptions, so we can compare
-        desc = re.sub(r' \([a-z]+\)', '', desc)
+        desc = re.sub(r' \([a-z]+\)', '', orig_desc)
 
         # Date plus hour of checkout e.g. "2024-04-01 12"
         ts = ordered[:13]
 
-        if lunch_hour(ts):
-            # Get order items for similar products e.g. "Noah's Poster"
-            prods = products[products['desc'].str.startswith(desc)].merge(order_items).merge(orders)
+        # Get order items for similar products e.g. "Noah's Poster"
+        prods = products[products['desc'].str.startswith(desc)].merge(order_items).merge(orders)
 
-            # Get order items in the same hour as the Bargain Hunter's
-            others = prods[prods['ordered'].str.startswith(ts)][['customerid','ordered']].values.tolist()
+        # Get order items in the same hour as the Bargain Hunter's
+        # NOTE: this wouldn't work if the two times were very close to the hours!
+        items = prods[prods['ordered'].str.startswith(ts)][['customerid','desc']].values.tolist()
 
-            # Restrict to "lunch hour"
-            other_ids = [ custid for custid, ordered in others if lunch_hour(ordered) ]
+        # Restrict to different colored products
+        custids = [ custid for custid, other_desc in items if other_desc != orig_desc ]
 
-            # If we have only two, then one is the Bargain Hunter, and the other is our person
-            if len(other_ids) == 2:
-                custid = [custid for custid in other_ids if custid != bargain_hunter_id][0]
-                return customers[customers['customerid'] == custid].iloc[0]['phone']
+        # If we have only one, then we've found our person
+        if len(custids) == 1:
+            return customers[customers['customerid'] == custids[0]].iloc[0]['phone']
 
 # ---------------------------------------------------------------------------------------------
 
