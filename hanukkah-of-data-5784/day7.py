@@ -24,13 +24,13 @@ def solve():
     # Loop over the Bargain Hunter's orders
     for orig_desc, ordered in bargain_orders:
         # Strip off the color portion of the product descriptions, so we can compare
-        desc = re.sub(r' \([a-z]+\)', '', orig_desc)
+        desc_prefix = re.sub(r' \([a-z]+\)', '', orig_desc)
 
         # Date plus hour of checkout e.g. "2024-04-01 12"
         ts = ordered[:13]
 
         # Get order items for similar products e.g. "Noah's Poster"
-        prods = products[products['desc'].str.startswith(desc)].merge(order_items).merge(orders)
+        prods = products[products['desc'].str.startswith(desc_prefix)].merge(order_items).merge(orders)
 
         # Get order items in the same hour as the Bargain Hunter's
         # NOTE: this wouldn't work if the two times were very close to the hours!
