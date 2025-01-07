@@ -7,7 +7,7 @@ def solve():
     order_items = pd.read_csv('noahs-orders_items.csv')
     products    = pd.read_csv('noahs-products.csv')
     data        = customers.merge(orders).merge(order_items).merge(products)
-    
+
     is_collectible = data['sku'].str.startswith('COL')
 
     grouped = (data[is_collectible][['customerid','sku','phone']].
