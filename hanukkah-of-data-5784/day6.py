@@ -1,4 +1,3 @@
-from advent import Counter
 import pandas as pd
 
 order_items = pd.merge(pd.read_csv('noahs-orders.csv'),
