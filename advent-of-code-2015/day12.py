@@ -6,7 +6,9 @@ def evaluate(obj):
     match obj:
         case int(obj):  return obj
         case list(obj): return sum(evaluate(x) for x in obj)
-        case dict(obj): return 0 if 'red' in obj.values() else sum(evaluate(x) for x in obj.values())
+        case dict(obj):
+            vals = obj.values()
+            return 0 if 'red' in vals else sum(evaluate(x) for x in vals)
         case _:         return 0
 
 assert sum(ints(input))            == 111754 # Part 1
