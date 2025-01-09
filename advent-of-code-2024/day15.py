@@ -25,7 +25,7 @@ def push_boxes(grid, pos, dir, skip_recur=False, quiet=False):
 
     if skip_recur or push_boxes(grid, other_pos, dir, True, quiet):
         next_pos = pos + dir
-        next_box = grid.get(next_pos, None)
+        next_box = grid.get(next_pos)
 
         if next_box is None or is_box(next_box) and push_boxes(grid, next_pos, dir, quiet=quiet):
             if not quiet:
@@ -37,7 +37,7 @@ def push_boxes(grid, pos, dir, skip_recur=False, quiet=False):
 
 def move(grid, bot, dir):
     pos = bot + dir
-    box = grid.get(pos, None)
+    box = grid.get(pos)
     return pos if box is None or is_box(box) and push_boxes(grid, pos, dir) else bot
 
 def solve(part):

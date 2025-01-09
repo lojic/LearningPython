@@ -11,7 +11,7 @@ for pos, val in [ (pos, val) for pos, val in grid.items() if val != '#' ]:
         G.add_edge((pos, dir), (pos, dir *  1j), weight=1000) # rotate right
         G.add_edge((pos, dir), (pos, dir * -1j), weight=1000) # rotate left
 
-        match grid.get(pos + dir, None):                      # move forward
+        match grid.get(pos + dir):                            # move forward
             case '.': G.add_edge((pos, dir), (pos+dir, dir), weight=1)
             case 'E': G.add_edge((pos, dir), (pos+dir, None), weight=1)
 

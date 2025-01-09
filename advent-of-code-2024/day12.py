@@ -8,7 +8,7 @@ def dfs(pos, plant, seen, fences, area=0):
 
     for dir in dirs:
         next_pos = pos + dir
-        if grid.get(next_pos, None) == plant:
+        if grid.get(next_pos) == plant:
             if next_pos not in seen:
                 area, fences = dfs(next_pos, plant, seen, fences, area)
         else:

@@ -3,9 +3,9 @@ from advent import parse, grid_to_hash, nx
 def gen_edges(grid):
     for pos, c in grid.items():
         if c in '.SE':
-            if grid.get(pos + 1, None) in '.SE':
+            if grid.get(pos + 1) in '.SE':
                 yield (pos, pos + 1)
-            if grid.get(pos + 1j, None)in '.SE':
+            if grid.get(pos + 1j)in '.SE':
                 yield (pos, pos + 1j)
 
 def solve():
