@@ -14,10 +14,10 @@
 
 class Board:
     def __init__(self, empty_hole=(0,0), goal=None):
-        self.board = [ [ True, False, False, False, False ],
-                       [ True, True,  False, False, False ],
-                       [ True, True,  True,  False, False ],
-                       [ True, True,  True,  True,  False ],
+        self.board = [ [ True ],
+                       [ True, True ],
+                       [ True, True,  True ],
+                       [ True, True,  True,  True ],
                        [ True, True,  True,  True,  True  ] ]
         self[empty_hole] = False
         self.goal = goal
