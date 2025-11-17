@@ -1,3 +1,12 @@
+"""
+Trivial compression example from "Class Computer Science Problems in Python"
+I also used bz2 since an industrial compression library is probably what I'd use
+in practice. Naturally, it smoked the trivial code :)
+"""
+
+import bz2
+
+
 class CompressedGene:
     def __init__(self, gene: str) -> None:
         """Assumes gene contains only 'A', 'C', 'G' or 'T'"""
@@ -50,11 +59,9 @@ class CompressedGene:
 if __name__ == '__main__':
     from sys import getsizeof
 
-    # original: str = 'TAGGGAATTACCGTGTGTTGGGCCAAACGT' * 1000
-    original: str = 'TAGCATCGAT'
+    original: str = 'TAGGGAATTACCGTGTGTTGGGCCAAACGT' * 1000
     print(f'original is {getsizeof(original)} bytes')
     compressed: CompressedGene = CompressedGene(original)
-    print(f'bit representation is {compressed.bit_string}')
 
     # NOTE: re: getsizeof()
     # "Only the memory consumption directly attributed to the object is accounted for,
@@ -65,3 +72,12 @@ if __name__ == '__main__':
         print('original and decompressed are identical')
     else:
         raise RuntimeError('original differs from decompressed')
+
+    encoded = original.encode('UTF-8')
+    bz2_compressed = bz2.compress(encoded)
+    print(f'bz2 compressed is {len(bz2_compressed)} bytes')
+
+    if bz2.decompress(bz2_compressed) == encoded:
+        print('bz2 decompressed identical to encoded')
+    else:
+        raise RuntimeError('bz2 differs')
