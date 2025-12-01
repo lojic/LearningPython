@@ -1,0 +1,21 @@
+* k-d tree for Day 25
+* matrix operations for day 22
+* Add completion time chart to table of contents blog post
+* 2023 Day 25 in Python using mincut
+* Day 14 - math solutions, statistical, variance, clustering, etc.
+* Day 14 Chinese Remainder Theorem https://www.reddit.com/r/adventofcode/comments/1hdvhvu/comment/m1zws1g/
+* Plot some visualizations
+* Day 11 using Danny's solution to compare timings
+* Day 10 make version with networkx
+* Day 7 rewrite to use operator lib:  https://docs.python.org/3/library/operator.html#module-operator
+* Day 7 in Go using this algorithm:  https://www.reddit.com/r/adventofcode/comments/1h8l3z5/comment/m0tv6di/
+* Day 6 in Go
+* Day 7 - cache expressions? someone said they cut their time in half
+* Understand this Day 9 solution: https://www.reddit.com/r/adventofcode/comments/1ha27bo/comment/m15wwre/
+* https://www.youtube.com/watch?v=S_rdenmcsm8  hyperneutrino networkx cut graphs
+* https://blog.singleton.io/posts/2024-01-02-advent-of-code-2023/
+
+* Day 19 super fast Rust solution using a trie
+  - https://github.com/maneatingape/advent-of-code-rust/blob/main/src/year2024/day19.rs
+  - https://pygtrie.readthedocs.io/en/latest/index.html
+  - https://pypi.org/project/datrie/

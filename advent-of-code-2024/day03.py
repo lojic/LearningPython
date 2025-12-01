@@ -1,10 +1,10 @@
 from advent import parse, re
 
-input = "".join(parse(3))
+input: str = "".join(parse(3))
 
-def solve(ignore_commands=False):
-    enabled = True
-    sum     = 0
+def solve(ignore_commands=False) -> int:
+    enabled: bool = True
+    sum: int      = 0
 
     for match in re.finditer(r"mul\((\d{1,3}),(\d{1,3})\)|don't\(\)|do\(\)", input):
         if match.group() == "do()":

@@ -1,0 +1,21 @@
+[project]
+name = "classic-cs-in-python"
+version = "0.1.0"
+description = "Classic Computer Science Problems in Python"
+authors = [
+    {name = "Brian Adkins",email = "brian@lojic.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "black (>=25.9.0,<26.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length=102
+skip-string-normalization=true

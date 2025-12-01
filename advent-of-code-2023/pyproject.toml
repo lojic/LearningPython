@@ -1,0 +1,25 @@
+[project]
+name = "aoc2023"
+version = "0.1.0"
+description = "Advent of Code 2023 Puzzles"
+authors = [
+    {name = "Brian Adkins",email = "brian@lojic.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib (>=3.10.5,<4.0.0)",
+    "networkx (>=3.5,<4.0)",
+    "ipython (>=9.4.0,<10.0.0)",
+    "black (>=25.1.0,<26.0.0)",
+    "pylint (>=3.3.8,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length=102
+skip-string-normalization=true

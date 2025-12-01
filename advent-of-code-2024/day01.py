@@ -1,11 +1,15 @@
 from advent import ints, parse, Counter
+import typing
+
+left:  tuple[int, ...]
+right: tuple[int, ...]
 
 left, right = zip(*parse(1, ints))
 
-def part1():
+def part1() -> int:
     return sum([ abs(l - r) for l, r in zip(sorted(left), sorted(right)) ])
 
-def part2():
+def part2() -> int:
     c = Counter(right)
     return sum(n * c[n] for n in left)
 
