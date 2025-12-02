@@ -17,8 +17,8 @@ def part2(s: str) -> bool:
     return False
 
 
-def solve(part: Callable[[str], bool]):
-    return sum(sum(n for n in range(left, right + 1) if part(str(n))) for left, right in input)
+def solve(invalid: Callable[[str], bool]):
+    return sum(sum(n for n in range(left, right + 1) if invalid(str(n))) for left, right in input)
 
 
 assert solve(part1) == 23560874270
