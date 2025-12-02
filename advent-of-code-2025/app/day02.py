@@ -2,7 +2,6 @@ from advent import parse, positive_ints, Callable
 
 input = parse(2, positive_ints, sep=',')
 
-
 part1 = lambda s: s[: len(s) // 2] * 2 == s
 
 
