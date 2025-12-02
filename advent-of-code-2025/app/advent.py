@@ -226,6 +226,11 @@ def parse(
     return entries
 
 
+def positive_ints(text) -> tuple[int, ...]:
+    """A tuple of all the integers in text, ignoring non-number characters."""
+    return mapt(int, re.findall(r'[0-9]+', text))
+
+
 def quantify(iterable: Iterable, pred: Callable[[Any], bool] = bool) -> int:
     """Count the number of items in iterable for which pred is true."""
     return sum(1 for item in iterable if pred(item))

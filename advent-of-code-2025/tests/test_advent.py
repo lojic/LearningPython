@@ -15,6 +15,7 @@ from app.advent import (
     mapt,
     parse,
     partition,
+    positive_ints,
     quantify,
     trunc,
     words,
@@ -172,6 +173,10 @@ def test_parse():
         (55, 88, 31, 49, 93, 59, 53, 13, 46, 57, 86, 43, 15, 18, 78, 94, 52, 27, 14),
         (33, 19, 35, 67, 62, 21, 47),
     )
+
+
+def test_positive_ints():
+    assert positive_ints("11-22, 3247/90") == (11, 22, 3247, 90)
 
 
 def test_quantify():

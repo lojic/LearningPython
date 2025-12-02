@@ -1,4 +1,4 @@
-from advent import parse, atom, Callable
+from app.advent import parse, atom, Callable
 
 input = [(line[0], int(line[1:])) for line in parse(1, atom)]
 
