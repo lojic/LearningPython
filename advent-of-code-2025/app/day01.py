@@ -1,6 +1,6 @@
 from advent import parse, atom, Callable
 
-input = [(line[0], int(line[1:])) for line in parse(1, atom)]
+input: list[tuple[str, int]] = [(line[0], int(line[1:])) for line in parse(1, atom)]
 
 
 part1 = lambda dial, _: 1 if dial == 0 else 0
