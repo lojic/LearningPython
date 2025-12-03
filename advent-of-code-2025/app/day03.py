@@ -1,9 +1,9 @@
 from advent import parse, digits, Generator
 
-input = parse(3, digits)
+input: tuple[tuple[int, ...]] = parse(3, digits)
 
 
-def bank_digits(batteries: list[int], num_batteries: int) -> Generator[int, None, None]:
+def bank_digits(batteries: tuple[int, ...], num_batteries: int) -> Generator[int, None, None]:
     for n in range(num_batteries, 0, -1):
         yield (digit := max(batteries[: len(batteries) - (n - 1)]))
         batteries = batteries[batteries.index(digit) + 1 :]
