@@ -14,7 +14,7 @@ from itertools import (
 from math import ceil, inf, prod, remainder, gcd, floor
 from statistics import mean, median
 from sys import setrecursionlimit
-from typing import Any, Callable, Iterable, Sequence, TypeVar
+from typing import Any, Callable, Generator, Iterable, Sequence, TypeVar
 import datetime as dt
 import matplotlib.pyplot as plt
 import networkx as nx  # type: ignore
