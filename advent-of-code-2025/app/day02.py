@@ -1,5 +1,4 @@
 from advent import parse, positive_ints, Callable
-import time
 
 input = parse(2, positive_ints, sep=',')
 
