@@ -7,21 +7,18 @@ dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
 
 
 def is_accessible(pos: complex) -> bool:
-    """Indicate whether the specified position is accessible i.e. it has
-    less than 4 adjacent rolls."""
+    """Indicate whether the specified position is accessible i.e. it has less than 4 neighbors."""
     return len([neighbor for dir in dirs if (neighbor := pos + dir) in grid]) < 4
 
 
 def accessible_rolls(grid: dict[complex, str]) -> list[complex]:
-    """Return a list of coordinates (as complex numbers) for all accessible
-    rolls in the grid."""
+    """Return a list of coordinates (as complex numbers) for all accessible rolls in the grid."""
     return [pos for pos in grid if is_accessible(pos)]
 
 
 def remove_rolls(grid: dict[complex, str]) -> Generator[int, None, None]:
-    """Iterate removal of accessible rolls while yielding the number of
-    rolls removed for each iteration. Continue until there are no
-    accessible rolls remaining."""
+    """Iterate removal of accessible rolls while yielding the number of rolls removed
+    for each iteration. Continue until there are no accessible rolls remaining."""
     while rolls := accessible_rolls(grid):
         for pos in rolls:
             del grid[pos]
