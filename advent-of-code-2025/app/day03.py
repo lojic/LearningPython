@@ -1,6 +1,6 @@
-from advent import parse, digits, Generator
+from advent import parse, Generator
 
-input: tuple[tuple[int, ...]] = parse(3, digits)
+input: tuple[tuple[int, ...]] = parse(3, list)
 
 
 def bank_digits(batteries: tuple[int, ...], num_batteries: int) -> Generator[int, None, None]:
