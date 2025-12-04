@@ -2,7 +2,7 @@ from advent import parse, grid_to_hash, Generator
 
 grid: dict[complex, str] = grid_to_hash(parse(4, list), elem_filter=lambda c: c == '@')
 dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
-adjacent = lambda pos: [neighbor for dir in dirs if grid.get(neighbor := pos + dir)]
+adjacent = lambda pos: [neighbor for dir in dirs if (neighbor := pos + dir) in grid]
 accessible = lambda grid: [pos for pos in grid.keys() if len(adjacent(pos)) < 4]
 
 
