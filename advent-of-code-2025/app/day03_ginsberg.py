@@ -1,5 +1,4 @@
-"""Port of Todd Ginsberg's Kotlin solution, so I can
-understand it :)"""
+"""Port of Todd Ginsberg's Kotlin solution, so I can understand it :)"""
 
 from advent import parse, digits, reduce
 
@@ -26,3 +25,20 @@ def joltage(bank: list[tuple[int, int]], batteries: int) -> int:
 
 assert solve_part1() == 17087
 assert solve_part2() == 169019504359949
+
+# Todd's original code:
+#
+# private val banks: List<List<IndexedValue<Int>>> = input.map { parseInput(it) }
+#
+# fun solvePart1(): Long =
+#     banks.sumOf { joltage(it, 2) }
+#
+# fun solvePart2(): Long =
+#     banks.sumOf { joltage(it, 12) }
+#
+# private fun joltage(bank: List<IndexedValue<Int>>, batteries: Int): Long =
+#     (1 .. batteries).fold(0L to 0) { (total, leftIndex), offset ->
+#         bank.subList(leftIndex, bank.size - batteries + offset)
+#             .maxBy { it.value }
+#             .let { (total * 10) + it.value to it.index + 1 }
+#     }.first
