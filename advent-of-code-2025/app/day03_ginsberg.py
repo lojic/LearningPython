@@ -1,4 +1,5 @@
-"""Port of Todd Ginsberg's Kotlin solution"""
+"""Port of Todd Ginsberg's Kotlin solution, so I can
+understand it :)"""
 
 from advent import parse, digits, reduce
 
