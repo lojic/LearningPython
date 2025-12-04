@@ -8,7 +8,7 @@ dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
 
 def is_accessible(pos: complex) -> bool:
     """Indicate whether the specified position is accessible i.e. it has less than 4 neighbors."""
-    return len([neighbor for dir in dirs if (neighbor := pos + dir) in grid]) < 4
+    return sum(1 for dir in dirs if (pos + dir) in grid) < 4
 
 
 def accessible_rolls(grid: dict[complex, str]) -> list[complex]:
