@@ -25,7 +25,7 @@ def remove_rolls(grid: dict[complex, str]) -> Generator[int, None, None]:
         yield len(rolls)
 
 
-removed = list(remove_rolls(grid))
+removed_counts = list(remove_rolls(grid))
 
-assert removed[0] == 1564
-assert sum(removed) == 9401
+assert removed_counts[0] == 1564
+assert sum(removed_counts) == 9401
