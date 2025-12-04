@@ -84,6 +84,15 @@ def findf(pred: Callable[[T], bool], seq: Sequence[T]):
     return next((x for x in seq if pred(x)), None)
 
 
+all_dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
+
+
+def grid_neighbors(
+    grid: dict[complex, Any], pos: complex, dirs: tuple[complex, ...] = all_dirs
+) -> list[complex]:
+    return [neighbor for dir in dirs if (neighbor := (pos + dir)) in grid]
+
+
 def grid_to_dict(
     lines: tuple[str, ...],
     elem_filter=lambda x: True,

@@ -1,14 +1,13 @@
 """Advent of Code 2025: Day 4 - Printing Department"""
 
-from advent import parse, grid_to_dict, Generator
+from advent import parse, grid_to_dict, grid_neighbors, Generator
 
 grid: dict[complex, str] = grid_to_dict(parse(4, list), elem_filter=lambda c: c == '@')
-dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
 
 
 def is_accessible(pos: complex) -> bool:
     """Indicate whether the specified position is accessible i.e. it has less than 4 neighbors."""
-    return sum(1 for dir in dirs if (pos + dir) in grid) < 4
+    return len(grid_neighbors(grid, pos)) < 4
 
 
 def accessible_rolls(grid: dict[complex, str]) -> list[complex]:
