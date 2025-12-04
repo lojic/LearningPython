@@ -1,8 +1,8 @@
 """Advent of Code 2025: Day 4 - Printing Department"""
 
-from advent import parse, grid_to_hash, Generator
+from advent import parse, grid_to_dict, Generator
 
-grid: dict[complex, str] = grid_to_hash(parse(4, list), elem_filter=lambda c: c == '@')
+grid: dict[complex, str] = grid_to_dict(parse(4, list), elem_filter=lambda c: c == '@')
 dirs: tuple[complex, ...] = (-1j, 1 - 1j, 1, 1 + 1j, 1j, -1 + 1j, -1, -1 - 1j)
 
 

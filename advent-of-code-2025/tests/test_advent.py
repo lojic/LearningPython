@@ -8,7 +8,7 @@ from app.advent import (
     digits,
     file_to_lines,
     findf,
-    grid_to_hash,
+    grid_to_dict,
     grid_word_search,
     ints,
     iterate,
@@ -77,26 +77,26 @@ def test_grid_to_hash():
     #  .#.....#
     #  ##...#..
     lines = ["..#...#.", "...#....", ".#.....#", "##...#.."]
-    hsh = grid_to_hash(lines)
+    hsh = grid_to_dict(lines)
     st = set(hsh.keys())
 
     assert len(st) == 32  # entire 8 x 4 grid
     assert 2 + 2j in st
     assert hsh[3 + 1j] == '#'
 
-    hsh = grid_to_hash(lines, elem_filter=lambda col: col == '#')
+    hsh = grid_to_dict(lines, elem_filter=lambda col: col == '#')
     keys = hsh.keys()
 
     assert len(keys) == 8
     assert (1 + 2j) in hsh
     assert not (2 + 1j) in hsh
 
-    hsh = grid_to_hash(lines, elem_transform=lambda c: "land" if c == '#' else "water")
+    hsh = grid_to_dict(lines, elem_transform=lambda c: "land" if c == '#' else "water")
 
     assert hsh[7 + 2j] == "land"
     assert hsh[7 + 3j] == "water"
 
-    hsh = grid_to_hash(
+    hsh = grid_to_dict(
         lines, row_transform=reversed, elem_transform=lambda c: "land" if c == '#' else "water"
     )
 

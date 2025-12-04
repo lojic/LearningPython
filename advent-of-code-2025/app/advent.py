@@ -84,7 +84,7 @@ def findf(pred: Callable[[T], bool], seq: Sequence[T]):
     return next((x for x in seq if pred(x)), None)
 
 
-def grid_to_hash(
+def grid_to_dict(
     lines: tuple[str, ...],
     elem_filter=lambda x: True,
     elem_transform=lambda x: x,
