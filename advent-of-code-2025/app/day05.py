@@ -10,7 +10,7 @@ fresh: list[Range] = [positive_ints(r) for r in section1]  # type: ignore
 ingredients: list[Ingredient] = [int(i) for i in section2]
 
 
-def merge_ranges(fresh: list[Range]) -> set[Range]:
+def merge_overlapping_ranges(fresh: list[Range]) -> set[Range]:
     """Compute a set of disjoint fresh ranges by merging overlapping ranges.
     We first sort the ranges so overlapping ranges are contiguous."""
     fresh = sorted(fresh)
@@ -41,7 +41,7 @@ def part1(fresh: list[Range], ingredients: list[Ingredient]) -> int:
 def part2(fresh: list[Range]) -> int:
     """Return the total possible fresh ingredient IDs by summing the length of
     each range after merging overlapping ranges."""
-    return sum(high - low + 1 for low, high in merge_ranges(fresh))
+    return sum(high - low + 1 for low, high in merge_overlapping_ranges(fresh))
 
 
 assert part1(fresh, ingredients) == 707
