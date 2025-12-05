@@ -30,7 +30,7 @@ def merge_ranges(fresh: list[Range]) -> set[Range]:
     return disjoint_ranges
 
 
-def part1(fresh: list[Range], ingredients: list[Ingredient]):
+def part1(fresh: list[Range], ingredients: list[Ingredient]) -> int:
     """Return the number of fresh ingredients by counting the number of ingredients
     in any fresh range."""
     is_fresh = lambda ingredient: any(low <= ingredient <= high for low, high in fresh)
@@ -38,7 +38,7 @@ def part1(fresh: list[Range], ingredients: list[Ingredient]):
     return sum(1 for ingredient in ingredients if is_fresh(ingredient))
 
 
-def part2(fresh: list[Range]):
+def part2(fresh: list[Range]) -> int:
     """Return the total possible fresh ingredient IDs by summing the length of
     each range after merging overlapping ranges."""
     return sum(high - low + 1 for low, high in merge_ranges(fresh))
