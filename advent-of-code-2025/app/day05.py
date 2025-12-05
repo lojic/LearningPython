@@ -41,7 +41,9 @@ def part1(fresh: list[Range], ingredients: list[Ingredient]) -> int:
 def part2(fresh: list[Range]) -> int:
     """Return the total possible fresh ingredient IDs by summing the length of
     each range after merging overlapping ranges."""
-    return sum(high - low + 1 for low, high in merge_overlapping_ranges(fresh))
+    range_size = lambda low, high: high - low + 1
+
+    return sum(range_size(*r) for r in merge_overlapping_ranges(fresh))
 
 
 assert part1(fresh, ingredients) == 707
