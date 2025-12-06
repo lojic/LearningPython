@@ -2,7 +2,7 @@ from advent import parse, atoms, operator, reduce, compose
 
 
 apply = lambda op_sym, args: reduce({'+': operator.add, '*': operator.mul}[op_sym], args)
-part1 = lambda: sum([apply(col[-1], col[:-1]) for col in zip(*parse(6, atoms))])
+part1 = lambda: [apply(col[-1], col[:-1]) for col in zip(*parse(6, atoms))]
 
 
 def part2(args=[]):
@@ -16,5 +16,5 @@ def part2(args=[]):
             args = []
 
 
-assert part1() == 3525371263915
+assert sum(part1()) == 3525371263915
 assert sum(part2()) == 6846480843636
