@@ -1,15 +1,15 @@
 from advent import parse, atoms, operator, reduce, compose
 
 
-def apply(op_sym: str, args: list[int]) -> int:
+def apply(op_sym, args):
     return reduce({'+': operator.add, '*': operator.mul}[op_sym], args)
 
 
-def part1() -> int:
+def part1():
     return sum([apply(col[-1], col[:-1]) for col in zip(*parse(6, atoms))])
 
 
-def part2() -> int:
+def part2():
     rows = filter(
         lambda row: ''.join(row).strip(),
         zip(*parse(6, compose(reversed, list), do_rstrip=False)),

@@ -1,6 +1,6 @@
 """Advent of Code 2025: Day 6 - Trash Compactor"""
 
-from advent import parse, atoms, operator, reduce, compose
+from advent import parse, atoms, operator, reduce, compose, Generator
 
 
 def apply(op_sym: str, args: list[int]) -> int:
@@ -32,7 +32,7 @@ def part2() -> int:
         zip(*parse(6, compose(reversed, list), do_rstrip=False)),
     )
 
-    def answers(rows):
+    def answers(rows) -> Generator[int, None, None]:
         """Accumulate an int argument from each row, until a row ends with an operator, then apply
         the operator to the accumulated args, yield the answer, clear the arg list, and repeat."""
         args = []
