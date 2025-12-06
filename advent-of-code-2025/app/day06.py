@@ -32,11 +32,9 @@ def part2() -> int:
         zip(*parse(6, compose(reversed, list), do_rstrip=False)),
     )
 
-    def answers(rows) -> Generator[int, None, None]:
+    def answers(rows, args: list[int] = []) -> Generator[int, None, None]:
         """Accumulate an int argument from each row, until a row ends with an operator, then apply
         the operator to the accumulated args, yield the answer, clear the arg list, and repeat."""
-        args = []
-
         for row in rows:
             args.append(int(''.join(row[:-1]).strip()))
 
