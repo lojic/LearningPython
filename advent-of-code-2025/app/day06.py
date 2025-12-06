@@ -5,7 +5,7 @@ from advent import parse, atoms, operator, reduce, compose
 
 def apply(op_sym: str, args: list[int]) -> int:
     """Apply an operator to a list of arguments. For example, apply('+', [1,2,3]) returns 6."""
-    return reduce({'+': operator.add, '-': operator.sub, '*': operator.mul}[op_sym], args)
+    return reduce({'+': operator.add, '*': operator.mul}[op_sym], args)
 
 
 def part1() -> int:
@@ -40,7 +40,7 @@ def part2() -> int:
         for row in rows:
             args.append(int(''.join(row[:-1]).strip()))
 
-            if row[-1] in ['+', '-', '*']:
+            if row[-1] in ['+', '*']:
                 yield apply(row[-1], args)
                 args = []
 
