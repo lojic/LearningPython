@@ -19,6 +19,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import networkx as nx  # type: ignore
 import numpy as np
+import operator
 import re
 import timeit
 
@@ -181,7 +182,7 @@ def atom(text: str) -> float | int | str:
 
 def atoms(text: str) -> tuple[float | int | str, ...]:
     """A tuple of all the atoms (numbers or symbol names) in text."""
-    return mapt(atom, re.findall(r'[a-zA-Z_0-9.+-]+', text))
+    return mapt(atom, re.findall(r'[-+*.a-zA-Z_0-9]+', text))
 
 
 def digits(text: str) -> tuple[int, ...]:
@@ -205,6 +206,7 @@ def parse(
     sep: str = '\n',
     print_lines: int | None = None,
     root: str = 'app',
+    do_rstrip: bool = True,
 ) -> tuple:
     """
     Split the day's input file into entries separated by
@@ -213,8 +215,10 @@ def parse(
     fname = f'{root}/day{day:02}.txt'
     the_file = open(fname, "r")
     text = the_file.read()
+    if do_rstrip:
+        text = text.rstrip()
     the_file.close()
-    entries = mapt(parser, text.rstrip().split(sep))
+    entries = mapt(parser, text.split(sep))
 
     if print_lines:
         all_lines = text.splitlines()
