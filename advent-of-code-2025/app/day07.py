@@ -18,8 +18,7 @@ while tachyons:
                 splits += 1
 
                 for delta in [-1, 1]:
-                    if grid.get(pos + delta) == '.':
-                        tachyons[pos + delta] += n
+                    tachyons[pos + delta] += n
             case None:
                 total += n
 
