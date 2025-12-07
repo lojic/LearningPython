@@ -16,8 +16,8 @@ while tachyons:
                 tachyons[pos] += n
             case '^':
                 splits += 1
-                for delta in [-1, 1]:
-                    tachyons[pos + delta] += n
+                tachyons[pos - 1] += n
+                tachyons[pos + 1] += n
             case None:
                 total += n
 
