@@ -25,7 +25,7 @@ def solve_both_parts():
 
         if (n := n + 1) == 1000:
             yield prod(sorted([len(s) for s in nx.connected_components(G)], reverse=True)[:3])
-        elif not remaining_boxes and nx.is_connected(G):
+        elif not remaining_boxes:
             yield box1[0] * box2[0]
             return
 
