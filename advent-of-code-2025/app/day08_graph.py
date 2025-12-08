@@ -8,13 +8,7 @@ def distance(pair: tuple[tuple[int, int, int], tuple[int, int, int]]) -> float:
 
 def solve_both_parts():
     remaining_boxes = set(parse(8, ints))
-    closest_pairs = [
-        pair[0]
-        for pair in sorted(
-            [(pair, distance(pair)) for pair in combinations(remaining_boxes, 2)],
-            key=lambda pair: pair[1],
-        )
-    ]
+    closest_pairs = sorted(combinations(remaining_boxes, 2), key=distance)
     G = nx.Graph()
 
     for n, (box1, box2) in enumerate(closest_pairs, 1):
