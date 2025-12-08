@@ -1,8 +1,10 @@
 """Advent of Code 2025: Day 8 - Playground
 
 The key elements of this solution are:
-1. Form the combinations of all junction boxes, and pair with the distance between them
-2. Use a set to represent a circuit
+1. Form the combinations of all pairs of junction boxes, with their distance
+2. Use a set to represent a circuit, and store in a list
+
+I decided agains using a heap, because a single sort for part 1 is clearer.
 
 Since part 2 is a continuation of part 1, I use a generator function to yield the
 answer for part 1, and then continue processing to yield the answer for part 2. The
@@ -11,9 +13,9 @@ condition for yielding part 2 is when there is a single circuit, and there are n
 remaining boxes to process.
 
 There are four main cases to consider when connecting two junction boxes:
-1. Both boxes already exist in separate circuits, we merge the two circuits
-2. Only box1 is in a circuit, we add box2 to that circuit
-3. Only box2 is in a circuit, we add box1 to that circuit
+1. Both boxes already exist in separate circuits, merge the two circuits
+2. Only box1 is in a circuit, add box2 to that circuit
+3. Only box2 is in a circuit, add box1 to that circuit
 4. Neither box is in a circuit, add the pair as a new circuit"""
 
 from advent import parse, ints, combinations, sqrt
