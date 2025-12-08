@@ -63,7 +63,7 @@ def solve_both_parts():
 
         if (n := n + 1) == 1000:
             yield prod(sorted([len(c) for c in circuits], reverse=True)[:3])
-        elif len(circuits) == 1 and not remaining_boxes:
+        elif not remaining_boxes:
             yield box1[0] * box2[0]
             return
 
