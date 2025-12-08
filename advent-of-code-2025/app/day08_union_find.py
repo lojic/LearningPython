@@ -7,17 +7,17 @@ def distance(pair: tuple[tuple[int, int, int], tuple[int, int, int]]) -> float:
 
 
 def solve_both_parts():
-    remaining_boxes = set(parse(8, ints))
-    G = nx.Graph()
+    boxes = set(parse(8, ints))
+    uf = nx.utils.UnionFind(boxes)
 
-    for n, (box1, box2) in enumerate(sorted(combinations(remaining_boxes, 2), key=distance), 1):
-        G.add_edge(box1, box2)
-        remaining_boxes.discard(box1)
-        remaining_boxes.discard(box2)
+    for n, (box1, box2) in enumerate(sorted(combinations(boxes, 2), key=distance), 1):
+        uf.union(box1, box2)
+        boxes.discard(box1)
+        boxes.discard(box2)
 
         if n == 1000:
-            yield prod(sorted([len(s) for s in nx.connected_components(G)], reverse=True)[:3])
-        elif not remaining_boxes:
+            yield prod(sorted([len(component) for component in uf.to_sets()], reverse=True)[:3])
+        elif not boxes:
             yield box1[0] * box2[0]
             return
 
