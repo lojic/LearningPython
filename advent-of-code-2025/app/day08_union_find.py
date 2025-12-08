@@ -14,7 +14,7 @@ def solve_both_parts():
 
         if n == 1000:
             yield prod(sorted([len(s) for s in uf.to_sets()], reverse=True)[:3])
-        elif not boxes:
+        elif not boxes and len(list(uf.to_sets())) == 1:
             yield box1[0] * box2[0]
             return
 
