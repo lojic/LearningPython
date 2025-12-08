@@ -20,7 +20,7 @@ NOTES: 1. I decided against using a heap, because a single sort for part 1 is cl
        2. We don't need the actual distance to rank, so we could skip the sqrt for
           extra speed, but why ruin a perfectly good distance function? :)"""
 
-from advent import parse, ints, combinations, sqrt
+from advent import parse, ints, combinations, sqrt, prod
 
 
 def distance(pair: tuple[tuple[int, int, int], tuple[int, int, int]]) -> float:
@@ -62,8 +62,7 @@ def solve_both_parts():
             circuits.append(set((box1, box2)))
 
         if (n := n + 1) == 1000:
-            circuits.sort(key=lambda s: len(s), reverse=True)
-            yield len(circuits[0]) * len(circuits[1]) * len(circuits[2])
+            yield prod(sorted([len(c) for c in circuits], reverse=True)[:3])
         elif len(circuits) == 1 and not remaining_boxes:
             yield box1[0] * box2[0]
             return
