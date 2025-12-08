@@ -1,3 +1,5 @@
+"""Advent of Code 2025: Day 8 - Playground (using a union-find)"""
+
 from advent import parse, ints, combinations, sqrt, nx, prod
 
 
