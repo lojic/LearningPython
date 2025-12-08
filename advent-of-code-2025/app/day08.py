@@ -4,7 +4,7 @@ The key elements of this solution are:
 1. Form the combinations of all pairs of junction boxes, with their distance
 2. Use a set to represent a circuit, and store in a list
 
-I decided agains using a heap, because a single sort for part 1 is clearer.
+I decided against using a heap, because a single sort for part 1 is clearer.
 
 Since part 2 is a continuation of part 1, I use a generator function to yield the
 answer for part 1, and then continue processing to yield the answer for part 2. The
