@@ -20,18 +20,12 @@ NOTES: 1. I decided against using a heap, because a single sort for part 1 is cl
        2. We don't need the actual distance to rank, so we could skip the sqrt for
           extra speed, but why ruin a perfectly good distance function? :)"""
 
-from advent import parse, ints, combinations, sqrt, prod
-
-
-def distance(pair: tuple[tuple[int, int, int], tuple[int, int, int]]) -> float:
-    """Return the Euclidean distance between two 3D points"""
-    ((x1, y1, z1), (x2, y2, z2)) = pair
-    return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
+from advent import parse, ints, combinations, prod, dist
 
 
 def solve_both_parts():
     remaining_boxes = set(parse(8, ints))
-    closest_pairs = sorted(combinations(remaining_boxes, 2), key=distance)
+    closest_pairs = sorted(combinations(remaining_boxes, 2), key=lambda pair: dist(*pair))
     circuits = [{box for box in closest_pairs[0]}]
 
     for n, (box1, box2) in enumerate(closest_pairs, 1):

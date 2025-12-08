@@ -11,7 +11,7 @@ from itertools import (
     product as cross_product,
     groupby,
 )
-from math import ceil, inf, prod, remainder, gcd, floor, sqrt
+from math import ceil, inf, prod, remainder, gcd, floor, sqrt, dist
 from statistics import mean, median
 from sys import setrecursionlimit
 from typing import Any, Callable, Generator, Iterable, Sequence, TypeVar
