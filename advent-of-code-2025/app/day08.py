@@ -11,9 +11,9 @@ condition for yielding part 2 is when there is a single circuit, and there are n
 remaining boxes to process.
 
 There are four main cases to consider when connecting two junction boxes:
-1. If both boxes already exist in separate circuits, we merge the two circuits
-2. If only box1 is in a circuit, we add box2 to that circuit
-3. If only box2 is in a circuit, we add box1 to that circuit
+1. Both boxes already exist in separate circuits, we merge the two circuits
+2. Only box1 is in a circuit, we add box2 to that circuit
+3. Only box2 is in a circuit, we add box1 to that circuit
 4. Neither box is in a circuit, add the pair as a new circuit"""
 
 from advent import parse, ints, combinations, sqrt
