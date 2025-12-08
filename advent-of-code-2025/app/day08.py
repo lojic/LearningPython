@@ -4,8 +4,6 @@ The key elements of this solution are:
 1. Form the combinations of all pairs of junction boxes, with their distance
 2. Use a set to represent a circuit, and store in a list
 
-I decided against using a heap, because a single sort for part 1 is clearer.
-
 Since part 2 is a continuation of part 1, I use a generator function to yield the
 answer for part 1, and then continue processing to yield the answer for part 2. The
 condition for yielding part 1 is when 1,000 pairs of boxes have been connected. The
@@ -16,7 +14,11 @@ There are four main cases to consider when connecting two junction boxes:
 1. Both boxes already exist in separate circuits, merge the two circuits
 2. Only box1 is in a circuit, add box2 to that circuit
 3. Only box2 is in a circuit, add box1 to that circuit
-4. Neither box is in a circuit, add the pair as a new circuit"""
+4. Neither box is in a circuit, add the pair as a new circuit
+
+NOTES: 1. I decided against using a heap, because a single sort for part 1 is clearer.
+       2. We don't need the actual distance to rank, so we could skip the sqrt for
+          extra speed, but why ruin a perfectly good distance function? :)"""
 
 from advent import parse, ints, combinations, sqrt
 
