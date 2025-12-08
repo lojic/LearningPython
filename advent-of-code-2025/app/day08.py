@@ -39,9 +39,8 @@ def solve_both_parts():
         )
     ]
     circuits = [{box for box in closest_pairs[0]}]
-    n = 1
 
-    for box1, box2 in closest_pairs:
+    for n, (box1, box2) in enumerate(closest_pairs, 1):
         remaining_boxes.discard(box1)
         remaining_boxes.discard(box2)
         circuit1 = next((c for c in circuits if box1 in c), None)
@@ -61,7 +60,7 @@ def solve_both_parts():
         else:
             circuits.append(set((box1, box2)))
 
-        if (n := n + 1) == 1000:
+        if n == 1000:
             yield prod(sorted([len(c) for c in circuits], reverse=True)[:3])
         elif not remaining_boxes:
             yield box1[0] * box2[0]

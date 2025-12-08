@@ -15,15 +15,14 @@ def solve_both_parts():
             key=lambda pair: pair[1],
         )
     ]
-    n = 1
     G = nx.Graph()
 
-    for box1, box2 in closest_pairs:
+    for n, (box1, box2) in enumerate(closest_pairs, 1):
         G.add_edge(box1, box2)
         remaining_boxes.discard(box1)
         remaining_boxes.discard(box2)
 
-        if (n := n + 1) == 1000:
+        if n == 1000:
             yield prod(sorted([len(s) for s in nx.connected_components(G)], reverse=True)[:3])
         elif not remaining_boxes:
             yield box1[0] * box2[0]
