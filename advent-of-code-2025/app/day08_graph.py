@@ -17,7 +17,6 @@ def solve_both_parts():
     ]
     n = 1
     G = nx.Graph()
-    circuit_sizes = lambda: [len(s) for s in nx.connected_components(G)]
 
     for box1, box2 in closest_pairs:
         G.add_edge(box1, box2)
@@ -25,8 +24,8 @@ def solve_both_parts():
         remaining_boxes.discard(box2)
 
         if (n := n + 1) == 1000:
-            yield prod(sorted(circuit_sizes(), reverse=True)[:3])
-        elif not remaining_boxes and len(circuit_sizes()) == 1:
+            yield prod(sorted([len(s) for s in nx.connected_components(G)], reverse=True)[:3])
+        elif not remaining_boxes and nx.is_connected(G):
             yield box1[0] * box2[0]
             return
 
