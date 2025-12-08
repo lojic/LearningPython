@@ -13,7 +13,7 @@ def solve_both_parts():
         boxes.discard(box2)
 
         if n == 1000:
-            yield prod(sorted([len(component) for component in uf.to_sets()], reverse=True)[:3])
+            yield prod(sorted([len(s) for s in uf.to_sets()], reverse=True)[:3])
         elif not boxes:
             yield box1[0] * box2[0]
             return
