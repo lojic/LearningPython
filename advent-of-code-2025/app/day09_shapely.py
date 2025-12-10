@@ -4,7 +4,7 @@ from advent import parse, ints, combinations
 from shapely.geometry import Polygon, box
 
 
-def solve():
+def part2():
     def area(edge) -> int:
         ((x1, y1), (x2, y2)) = edge
         return (abs(x2 - x1) + 1) * (abs(y2 - y1) + 1)
@@ -17,4 +17,4 @@ def solve():
             return area(((x1, y1), (x2, y2)))
 
 
-assert solve() == 1644094530
+assert part2() == 1644094530
