@@ -14,7 +14,7 @@ def solve():
 
     for (x1, y1), (x2, y2) in sorted(combinations(input, 2), key=area, reverse=True):
         if polygon.contains(box(x1, y1, x2, y2)):
-            return (abs(x2 - x1) + 1) * (abs(y2 - y1) + 1)
+            return area(((x1, y1), (x2, y2)))
 
 
 assert solve() == 1644094530
