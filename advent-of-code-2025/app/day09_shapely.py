@@ -9,7 +9,7 @@ def part2():
         ((x1, y1), (x2, y2)) = edge
         return (abs(x2 - x1) + 1) * (abs(y2 - y1) + 1)
 
-    input = list(parse(9, ints))
+    input = parse(9, ints)
     polygon = Polygon(input)
 
     for (x1, y1), (x2, y2) in sorted(combinations(input, 2), key=area, reverse=True):
