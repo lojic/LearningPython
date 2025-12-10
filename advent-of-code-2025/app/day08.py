@@ -16,9 +16,7 @@ There are four main cases to consider when connecting two junction boxes:
 3. Only box2 is in a circuit, add box1 to that circuit
 4. Neither box is in a circuit, add the pair as a new circuit
 
-NOTES: 1. I decided against using a heap, because a single sort for part 1 is clearer.
-       2. We don't need the actual distance to rank, so we could skip the sqrt for
-          extra speed, but why ruin a perfectly good distance function? :)"""
+NOTE: I decided against using a heap, because a single sort for part 1 is clearer."""
 
 from advent import parse, ints, combinations, prod, dist
 
