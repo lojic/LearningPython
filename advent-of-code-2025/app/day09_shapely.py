@@ -12,9 +12,10 @@ def part2():
     input = parse(9, ints)
     polygon = Polygon(input)
 
-    for (x1, y1), (x2, y2) in sorted(combinations(input, 2), key=area, reverse=True):
+    for edge in sorted(combinations(input, 2), key=area, reverse=True):
+        (x1, y1), (x2, y2) = edge
         if polygon.contains(box(x1, y1, x2, y2)):
-            return area(((x1, y1), (x2, y2)))
+            return area(edge)
 
 
 assert part2() == 1644094530
