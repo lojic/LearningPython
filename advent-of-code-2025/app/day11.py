@@ -1,17 +1,13 @@
 """Advent of Code 2025: Day 11 - Reactor"""
 
-from advent import parse, atoms, nx, prod, cache
+from advent import nx, prod, cache
 
-G = nx.DiGraph()
-
-for source, *sinks in parse(11, atoms, print_lines=3):
-    for sink in sinks:
-        G.add_edge(source, sink)
+G = nx.read_adjlist(open("app/day11.txt", "rb"), create_using=nx.DiGraph)
 
 
 @cache
-def dfs(node, sink):
-    return 1 if node == sink else sum(dfs(n, sink) for n in G.neighbors(node))
+def dfs(node, dst):
+    return 1 if node == dst else sum(dfs(n, dst) for n in G.neighbors(node))
 
 
 def part1():
