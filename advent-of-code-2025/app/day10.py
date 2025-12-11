@@ -17,11 +17,7 @@ def parse_machine(line) -> Machine:
 
     items = line.split()
 
-    return (
-        parse_diagram(items[0]),
-        parse_buttons([s for s in items if s[0] == '(']),
-        parse_joltage([s for s in items if s[0] == '{'][0]),
-    )
+    return (parse_diagram(items[0]), parse_buttons(items[1:-1]), parse_joltage(items[-1]))
 
 
 machines: list[Machine] = parse(10, parse_machine)
