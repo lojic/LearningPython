@@ -1,6 +1,6 @@
 """Advent of Code 2025: Day 11 - Reactor"""
 
-from advent import parse, atoms, nx, prod
+from advent import parse, atoms, nx, prod, cache
 
 G = nx.DiGraph()
 
@@ -14,17 +14,12 @@ def part1():
 
 
 def part2():
-    def dfs(node, sink, seen):
-        if node in seen:
-            return seen[node]
-        elif node == sink:
-            return 1
-        else:
-            seen[node] = sum(dfs(n, sink, seen) for n in G.neighbors(node))
-            return seen[node]
+    @cache
+    def dfs(node, sink):
+        return 1 if node == sink else sum(dfs(n, sink) for n in G.neighbors(node))
 
     return sum(
-        prod(dfs(src, dst, {}) for src, dst in zip(seq, seq[1:]))
+        prod(dfs(src, dst) for src, dst in zip(seq, seq[1:]))
         for seq in (('svr', 'fft', 'dac', 'out'), ('svr', 'dac', 'fft', 'out'))
     )
 
