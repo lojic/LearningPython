@@ -21,14 +21,14 @@ def parse_machine(line) -> Machine:
 machines: list[Machine] = parse(10, parse_machine)  # type: ignore
 
 
-def minimize(buttons, joltage) -> float:
+def minimize(buttons, joltage) -> int:
     c = [1 for _ in buttons]
     A = [[1 if i in b else 0 for b in buttons] for i in range(len(joltage))]
-    return linprog(c, A_eq=A, b_eq=joltage, integrality=1).fun
+    return round(linprog(c, A_eq=A, b_eq=joltage, integrality=1).fun)
 
 
 def part2():
-    return int(sum(minimize(buttons, joltage) for buttons, joltage in machines))
+    return sum(minimize(buttons, joltage) for buttons, joltage in machines)
 
 
 assert part2() == 18273
