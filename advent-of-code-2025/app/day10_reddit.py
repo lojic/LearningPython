@@ -12,4 +12,4 @@ for _, *buttons, joltage in map(str.split, open('app/day10.txt')):
     A = [[1 if i in b else 0 for b in buttons] for i in numbers]
     b += linprog(c, A_eq=A, b_eq=joltage, integrality=1).fun
 
-assert b == 18273
+assert int(b) == 18273
